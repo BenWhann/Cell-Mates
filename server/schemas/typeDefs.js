@@ -1,57 +1,64 @@
-const typeDefs = `
-  type Category {
-    _id: ID
-    name: String
-  }
-
-  type Product {
-    _id: ID
-    name: String
-    description: String
-    image: String
-    quantity: Int
-    price: Float
-    category: Category
-  }
-
-  type Order {
-    _id: ID
-    purchaseDate: String
-    products: [Product]
-  }
-
+const typeDefs = `#graphql
   type User {
     _id: ID
-    firstName: String
-    lastName: String
+    username: String
     email: String
-    orders: [Order]
+    password: String
+    age: Int
+    sex: String
+    location: String
+    profilePic: String
+    inmate: Boolean
+    description: String
+    matches: [User]
   }
 
-  type Checkout {
-    session: ID
+  type Inmate {
+    _id: ID
+    releaseDate: String
+    crime: String
+    pastConvictions: String
+  }
+
+  type Preference {
+    _id: ID
+    sex: String
+    crime: String
+    sentenceTime: String
+    wanted: String
+  }
+
+  type ShopItem {
+    _id: ID
+    name: String
+    price: Int
+    pic: String
   }
 
   type Auth {
-    token: ID
+    token: ID!
     user: User
   }
 
-  type Query {
-    categories: [Category]
-    products(category: ID, name: String): [Product]
-    product(_id: ID!): Product
-    user: User
-    order(_id: ID!): Order
-    checkout(products: [ID]!): Checkout
-  }
+   type Query {
+     user(userId: String!): User
+     preferences(userId: ID!): [Preference]
+     inmate(userId: ID!): [Inmate]
+     shopItem(shopId: ID!): ShopItem
+   }
 
-  type Mutation {
-    addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-    addOrder(products: [ID]!): Order
-    updateUser(firstName: String, lastName: String, email: String, password: String): User
-    updateProduct(_id: ID!, quantity: Int!): Product
-    login(email: String!, password: String!): Auth
+   type Mutation {
+     addUser(email: String!, password: String!): Auth
+     login(email: String!, password: String!): Auth
+     addMatch(products: [ID]!): Order
+  #   # addThought(thoughtText: String!, thoughtAuthor: String!): Thought
+  #   # addComment(
+  #   #   thoughtId: ID!
+  #   #   commentText: String!
+  #   #   commentAuthor: String!
+  #   # ): Thought
+  #   # removeThought(thoughtId: ID!): Thought
+  #   # removeComment(thoughtId: ID!, commentId: ID!): Thought
   }
 `;
 
