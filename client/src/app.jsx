@@ -30,10 +30,8 @@ const httpLink = createHttpLink({
  function App() {
     return (
       <ApolloProvider client={client}>
-        <StoreProvider>
           <Header />
           <Outlet />
-//      </StoreProvider>
       </ApolloProvider>
     );
   }
