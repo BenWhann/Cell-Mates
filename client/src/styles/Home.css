@@ -1,0 +1,29 @@
+.signUpCont {
+
+    height: 250px;
+    width: 350px;
+    background-color: blueviolet;
+    border-radius: 4px;
+
+}
+
+.signUpTitle {
+
+    position: absolute;
+    right: 50px;
+    top: 490px;
+
+}       
+
+a {
+
+    text-decoration: none;
+
+}
+
+.loginBtn {
+
+    display: flex;
+    justify-content: center;
+
+}
