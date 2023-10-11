@@ -4,7 +4,7 @@ export default function CommisaryPage() {
 
     return (
         <div>
-            
+
         </div>
     );
 
