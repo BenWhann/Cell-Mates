@@ -1,3 +1,4 @@
+import ReactDOM from 'react-dom/client'
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -6,22 +7,32 @@ import $ from 'jquery';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.css';
+
 import App from './App.jsx';
 import Home from './pages/Home';
+import Signup from './pages/Signup';
 import Userprofile from './pages/Userprofile';
 import MeetMates from './pages/Meetmates';
 import MatchedList from './pages/Matchedlist';
 import Commissary from './pages/Commissary';
+import Error from './pages/Error';
 
 const router = createBrowserRouter([
 
     {
         path: '/',
         element: <App />,
+        error: <Error />,
         children: [
           {
             index: true, 
-            element: <Home />
+            element: <Home />,
+          },
+          {
+            path: '/signup',
+            element: <Signup />,
           },
           {
             path: '/userprofile',
