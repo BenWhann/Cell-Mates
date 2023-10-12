@@ -4,7 +4,9 @@ export default function meetMatesPage() {
 
     return (
       <div>
-        
+        <div>
+          <img></img>
+        </div>
       </div>
     )
 
