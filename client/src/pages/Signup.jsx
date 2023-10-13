@@ -2,6 +2,9 @@ export default function signUppage() {
 
     return (
       <div>
+        <div>
+          <h2>Signup</h2>
+        </div>
         <form>
           <div>
             <label for="userName">Username</label>
@@ -53,6 +56,7 @@ export default function signUppage() {
             <label for="description">Description</label><br></br>
             <textarea id="description"></textarea>
           </div>
+          <button type="submit" class="btn btn-primary">Sign Up</button>
         </form>
       </div>
     )
