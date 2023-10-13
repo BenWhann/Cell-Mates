@@ -1,8 +1,15 @@
 import '../styles/Userprofile.css'
+import PrisonerInfo from '../components/UI/PrisonerInfo';
+import CivilianPreferences from '../components/UI/CivilianPrefernces';
+import { useState } from 'react';
 
 export default function userProfilePage() {
 
+    const [isPrisoner, setIsPrisoner] = useState(true);
+    const [isCivilian, setIsCivilian] = useState(true);
+
     return (
+        <>
         <div id='userProfile' className='container d-flex flex-column align-items-center'>
             <div id='profileHeader' className='m-3 d-flex flex-column justify-content-center'>
                 <h1>User Profile</h1>
@@ -16,20 +23,19 @@ export default function userProfilePage() {
                 <div>Profile Picture</div>
             </div>
             <div id='prisonerDetails' className='m-3 d-flex flex-column align-items-center'>
-                <h2>Prisoner Details</h2>
-                <div>Prison Address</div>
-                <div>Commissary Item Wish List</div>
+                { isPrisoner && <PrisonerInfo/>}
+                <button onClick={() => setIsPrisoner(!isPrisoner)}>Is Prisoner?</button>
             </div>
             <div id='communicationSettings' className='m-3 d-flex flex-column align-items-center'>
                 <h2>Communication Settings</h2>
                 <div>Allow Email Communication?</div>
             </div>
             <div id='civilianPreferences' className='m-3 d-flex flex-column align-items-center'>
-                <h2>Civilian Preferences</h2>
-                <div>Sentence Length</div>
-                <div>Deal Breaker Crimes</div>
+                { isCivilian && <CivilianPreferences/>}
+                <button onClick={() => setIsCivilian(!isCivilian)}>Is Civilian?</button>
             </div>
         </div>
+        </>
     )
 
 }
