@@ -8,9 +8,12 @@ const typeDefs = `#graphql
     sex: String
     location: String
     profilePic: String
-    inmate: Boolean
+    isInmate: Boolean
     description: String
     matches: [User]
+    likes: [User]
+    inmate: Inmate
+    preference: Preference
   }
 
   type Inmate {
@@ -23,8 +26,6 @@ const typeDefs = `#graphql
   type Preference {
     _id: ID
     sex: String
-    crime: String
-    sentenceTime: String
     wanted: String
   }
 
@@ -42,23 +43,17 @@ const typeDefs = `#graphql
 
    type Query {
      user(userId: String!): User
-     preferences(userId: ID!): [Preference]
-     inmate(userId: ID!): [Inmate]
      shopItem(shopId: ID!): ShopItem
    }
 
    type Mutation {
-     addUser(email: String!, password: String!): Auth
+     addUser(email: String!, password: String!, isInmate: Boolean): Auth
      login(email: String!, password: String!): Auth
-     addMatch(products: [ID]!): Order
-  #   # addThought(thoughtText: String!, thoughtAuthor: String!): Thought
-  #   # addComment(
-  #   #   thoughtId: ID!
-  #   #   commentText: String!
-  #   #   commentAuthor: String!
-  #   # ): Thought
-  #   # removeThought(thoughtId: ID!): Thought
-  #   # removeComment(thoughtId: ID!, commentId: ID!): Thought
+     addMatch(userId: String! ): User
+     addLikes(userId: String! ): User
+     updatePreferences(sex: String, wanted: String ): Preference
+     updateInmate(crime: String, pastConvictions: String, releaseDate: String ): Inmate
+    updateUser(username: String, age: Int, sex: String, location: String, profilePic: String, description: String): User
   }
 `;
 
