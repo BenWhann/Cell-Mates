@@ -1,9 +1,8 @@
 import ReactDOM from 'react-dom/client'
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
+//import 'react-bootstrap@2.9.0/dist/react-bootstrap.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
@@ -25,7 +24,7 @@ const router = createBrowserRouter([
         children: [
           {
             index: true, 
-            element: <Home />,
+            element: <Signup />,
           },
           {
             path: '/signup',

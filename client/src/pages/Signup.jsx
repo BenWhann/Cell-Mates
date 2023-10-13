@@ -1,3 +1,5 @@
+import Form from 'react-bootstrap/Form';
+
 export default function signUppage() {
 
     return (
@@ -5,59 +7,59 @@ export default function signUppage() {
         <div>
           <h2>Signup</h2>
         </div>
-        <form>
-          <div>
-            <label for="userName">Username</label>
-            <input type="text" id="userName"></input><br></br>
-          </div>
-          <div>
-            <label for="email">Email</label>
-            <input type="text" id="email"></input><br></br>
-          </div>
-          <div>
-            <label for="password">Password</label>
-            <input type="password" id="password"></input><br></br>
-          </div>
-          <div>
-            <label for="password">Confirm password</label>
-            <input type="password" id="password"></input><br></br>
-          </div>
-          <div>
+        <Form>
+          <Form.Group className="mb-3">
+            <Form.Label for="userName">Username</Form.Label>
+            <Form.Control type="text" id="userName"></Form.Control>
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label for="email">Email</Form.Label>
+            <Form.Control type="text" id="email"></Form.Control>
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label for="password">Password</Form.Label>
+            <Form.Control type="password" id="password"></Form.Control>
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label for="password">Confirm password</Form.Label>
+            <Form.Control type="password" id="password"></Form.Control>
+          </Form.Group>
+          <Form.Group className="mb-3">
             <a>Sex:</a>
-            <input type="radio" id="male" value="male"></input>
-            <label for="male">Male</label>
-            <input type="radio" id="female" value="female"></input>
-            <label for="female">Female</label><br></br>
-          </div>
-          <div>       
-            <label for="location">Location</label>
-            <input type="text" id="location"></input><br></br>
-          </div>
-          <div>
-            <label for="inmate">Are you an Inmate</label>
+            <Form.Control type="radio" id="male" value="male"></Form.Control>
+            <Form.Label for="male">Male</Form.Label>
+            <Form.Control type="radio" id="female" value="female"></Form.Control>
+            <Form.Label for="female">Female</Form.Label>
+          </Form.Group>
+          <Form.Group> className="mb-3"       
+            <Form.Label for="location">Location</Form.Label>
+            <Form.Control type="text" id="location"></Form.Control>
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label for="inmate">Are you an Inmate</Form.Label>
             <select id="inmate">
               <option value="yes">Yes</option>
               <option value="no">No</option>
-            </select><br></br>
-          </div>
-          <div>
-            <label for="releaseDate">Release Date</label>
-            <input type="text" id="releaseDate"></input><br></br>
-          </div>
-          <div>
-            <label for="crime">Crime</label>
-            <input type="text" id="crime"></input><br></br>
-          </div>
-          <div>
-            <label for="pastCon">Past Crime</label>
-            <input type="text" id="pastCon"></input><br></br>
-          </div>
-          <div>
-            <label for="description">Description</label><br></br>
-            <textarea id="description"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Sign Up</button>
-        </form>
+            </select>
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label for="releaseDate">Release Date</Form.Label>
+            <Form.Control type="text" id="releaseDate"></Form.Control>
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label for="crime">Crime</Form.Label>
+            <Form.Control type="text" id="crime"></Form.Control>
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label for="pastCon">Past Crime</Form.Label>
+            <Form.Control type="text" id="pastCon"></Form.Control>
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label for="description">Description</Form.Label>
+            <Form.Control as='textarea' rows={5} id="description"></Form.Control>
+          </Form.Group>
+          <button type="submit" className="btn btn-primary">Sign Up</button>
+        </Form>
       </div>
     )
 
