@@ -1,9 +1,18 @@
 import { Link } from 'react-router-dom';
 import Nav from './UI/Navbar';
 import Auth from '../utils/auth';
+import { useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Modal from 'react-bootstrap/Modal';
 import '../styles/Home.css';
 
 export default function header() {
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
     <div className='conatiner'>
@@ -14,34 +23,44 @@ export default function header() {
         {Auth.loggedIn() ? (
           <Nav
             links={[
-              <Link key={1} className="" to="/"> TEXT </Link>
+              <Link key={1} className="" to="/meetmates"> Match Me </Link>,
+              <Link key={2} className="" to="/userprofile"> Profile </Link>,
+              <Link key={3} className="" to="/matchedlist"> Mates </Link>,
+              <Link key={4} className="" to="/commissary"> Match Me </Link>
             ]}
           />
         ) : (
         <div>
-          <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#loginModal">
-            Login
-          </button>
-
-          <div className="modal fade" id="loginModal" tabIndex="-1" role="dialog" aria-labelledby="loginModalCenterTitle" aria-hidden="true">
-            <div className="modal-dialog modal-dialog-centered" role="document">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h5 className="modal-title" id="loginModalLongTitle">Login</h5>
-                  <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div className="modal-body">
-                  ...
-                </div>
-                <div className="modal-footer">
-                  <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" className="btn btn-primary">Save changes</button>
-                </div>
-              </div>
-            </div>
+          <div className='lbCont'>
+            <Button className='loginBtn' variant="primary" size='lg' onClick={handleShow}>
+              Login
+            </Button>
           </div>
+          <Modal show={show} onHide={handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>Please Login</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <Form>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                  <Form.Label>Email</Form.Label>
+                    <Form.Control type="email" placeholder="name@example.com" autoFocus/>
+                </Form.Group>
+                <Form.Group className="mb-3" placeholder="password">
+                  <Form.Label>Password</Form.Label>
+                  <Form.Control type="password" autoFocus/>
+                </Form.Group>
+              </Form>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="primary" onClick={handleClose}>
+                Login
+              </Button>
+              <Button variant="secondary" onClick={handleClose}>
+                Exit
+              </Button>
+            </Modal.Footer>
+          </Modal>
         </div>
         )}
       </div>
