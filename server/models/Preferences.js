@@ -1,26 +1,21 @@
 const { Schema, model } = require('mongoose');
-const dateFormat = require('../utils/dateFormat');
 
 const preferencesSchema = new Schema({
+    userId: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    },
     sex: {
-      type: String,
-      trim: true,
-      maxLength: 1
-    },
-    Crime: {
         type: String,
-        trim: true
+        trim: true,
+        maxLength: 1
     },
-    SentenceTime: {
-        type: Date,
-        get: (timestamp) => dateFormat(timestamp),
-    },
-    Wanted: {
+    wanted: {
         type: String,
         trim: true
     }
-  });
+});
 
-  const Preference = model('Peference', preferencesSchema);
+const Preference = model('Peference', preferencesSchema);
 
 module.exports = Preference;
