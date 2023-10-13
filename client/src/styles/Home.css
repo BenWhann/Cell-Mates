@@ -11,7 +11,7 @@
 
     position: absolute;
     right: 50px;
-    top: 490px;
+    top: 350px;
 
 }       
 
@@ -21,9 +21,15 @@ a {
 
 }
 
-.loginBtn {
+.lbCont {
 
     display: flex;
     justify-content: center;
+
+}
+
+.loginBtn {
+
+    width: 150px;
 
 }
