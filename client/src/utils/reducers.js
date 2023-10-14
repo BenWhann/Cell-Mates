@@ -1,10 +1,11 @@
 import {
-  ADD_CONVICT
+REMOVE_MATCHES,
+UPDATE_USER
 } from './actions';
 
 export const reducer = (state, action) => {
   switch (action.type) {
-    case ADD_CONVICT:
+    case REMOVE_MATCHES:
       return {
         ...state,
 //        products: [...action.products],

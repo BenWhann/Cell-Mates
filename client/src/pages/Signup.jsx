@@ -2,7 +2,6 @@ import Form from 'react-bootstrap/Form';
 import Collapse from 'react-bootstrap/Collapse';
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import Auth from '../utils/auth';
 import { ADD_USER } from '../utils/mutations';
 
 
@@ -23,7 +22,7 @@ export default function signUppage(props) {
         sex: formState.sex,
         location: formState.location,
         description: formState.description,
-        isInmate: formState.age,
+        isInmate: formState.isInmate,
       },
     });
     const token = mutationResponse.data.addUser.token;

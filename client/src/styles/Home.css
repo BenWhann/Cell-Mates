@@ -33,3 +33,44 @@ a {
     width: 150px;
 
 }
+
+.homeImages {
+
+    width: 400px;
+    height: 250px;
+    border-radius: 5px;
+
+}
+
+.cellCont {
+
+    position: absolute;
+    left: 112px;
+    top: 15px;
+
+}
+
+.mateCont {
+
+    position: absolute;
+    right: 70px;
+    top: 70px;
+
+}
+.cellTitle {
+
+    font-size: 70px;
+    color: white; 
+    -webkit-text-stroke-width: 2px; 
+    -webkit-text-stroke-color: black; 
+    
+}
+
+.mateTitle {
+
+    font-size: 70px;
+    color: red; 
+    -webkit-text-stroke-width: 2px; 
+    -webkit-text-stroke-color: black; 
+
+}
