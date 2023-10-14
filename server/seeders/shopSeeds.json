@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Ramen",
+        "price": 2,
+        "pic": "image url here"
+    },
+    {
+        "name": "Soap",
+        "price": 3.5,
+        "pic": "image url here"
+    },
+    {
+        "name": "Coffee",
+        "price": 5,
+        "pic": "image url here"
+    }
+]

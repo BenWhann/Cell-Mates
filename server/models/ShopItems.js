@@ -6,11 +6,11 @@ const shopSchema = new Schema({
       trim: true,
       required: true
     },
-    Price: {
+    price: {
         type: Number,
         required: true
     },
-    Pic: {
+    pic: {
         type: String,
         required: true
     }

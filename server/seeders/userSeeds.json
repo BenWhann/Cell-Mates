@@ -1,0 +1,68 @@
+[
+    {
+        "username": "KatyW",
+        "email": "katy@gmail.com",
+        "password": "12345",
+        "age": 26,
+        "sex": "F",
+        "location": "Twin Cities",
+        "isInmate": false,
+        "description": "looking for love...",
+        "preference": {
+            "sex": "M",
+            "wanted": "Serious Relationship"
+        }
+    },
+    {
+        "username": "LisaLove",
+        "email": "lisa@gmail.com",
+        "password": "12345",
+        "age": 28,
+        "sex": "F",
+        "location": "Omaha",
+        "isInmate": false,
+        "description": "I'm so desperate...",
+        "preference": {
+            "sex": "F",
+            "wanted": "Serious Relationship"
+        }
+    },
+    {
+        "username": "JohnnyBoy",
+        "email": "John@gmail.com",
+        "password": "12345",
+        "age": 32,
+        "sex": "M",
+        "location": "Sioux City",
+        "isInmate": true,
+        "description": "Looking for something to fill my time",
+        "inmate": {
+            "releaseDate": "10/31/24",
+            "crime": "larceny",
+            "pastConvictions": "B&E"
+        },
+        "preference": {
+            "sex": "F",
+            "wanted": "Fling"
+        }
+    },
+    {
+        "username": "Pat Muffins",
+        "email": "Pat@gmail.com",
+        "password": "12345",
+        "age": 25,
+        "sex": "M",
+        "location": "St.Cloud",
+        "isInmate": true,
+        "description": ":( -me",
+        "inmate": {
+            "releaseDate": "12/31/26",
+            "crime": "Robbery",
+            "pastConvictions": "Laundering"
+        },
+        "preference": {
+            "sex": "F",
+            "wanted": "Serious Relationship"
+        }
+    }
+]

@@ -43,7 +43,7 @@ const typeDefs = `#graphql
 
    type Query {
      user(userId: String!): User
-     shopItem(shopId: ID!): ShopItem
+     shopItems: [ShopItem]
    }
 
    type Mutation {
@@ -53,7 +53,7 @@ const typeDefs = `#graphql
      addLikes(userId: String! ): User
      updatePreferences(sex: String, wanted: String ): Preference
      updateInmate(crime: String, pastConvictions: String, releaseDate: String ): Inmate
-    updateUser(username: String, age: Int, sex: String, location: String, profilePic: String, description: String): User
+     updateUser(username: String, age: Int, sex: String, location: String, profilePic: String, description: String): User
   }
 `;
 
