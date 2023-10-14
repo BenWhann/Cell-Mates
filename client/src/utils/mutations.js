@@ -1,17 +1,39 @@
 import { gql } from '@apollo/client';
 
-export const ADD_CONVICT = gql`
+export const LOGIN = gql`
+  mutation login($email: String!, $password: String!) {
+    login(email: $email, password: $password) {
+      token
+      user {
+        _id
+      }
+    }
+  }
+`;
+
+export const ADD_USER = gql`
   mutation addUser(
-    $firstName: String!
-    $lastName: String!
+    $username: String!
     $email: String!
     $password: String!
+    $age: Int!
+    $sex: String!
+    $location: String!
+    $profilePic: String!
+    $description: String!
+    $isInmate: Boolean!
   ) {
     addUser(
       firstName: $firstName
       lastName: $lastName
-      email: $email
       password: $password
+      email: $email
+      age: $age
+      sex: $sex
+      location: $location
+      profilePic: $profilePic
+      description: $description
+      isInmate: $isInmate
     ) {
       token
       user {

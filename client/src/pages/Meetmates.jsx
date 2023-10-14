@@ -1,16 +1,29 @@
-import '../styles/Meetmates.css'
+import '../styles/Meetmates.css';
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
+import Image from 'react-bootstrap/Image';
+import Row from 'react-bootstrap/Row';
+import Thumbsup from '../../public/images/thumbsup.png'
+import Thumbsdown from '../../public/images/thumbsdown.png'
 
 export default function meetMatesPage() {
 
     return (
       <div>
-        <div>
-          <h2>Test Match Page</h2>
-        </div>
-        <div>
-          <img src='https://www.google.com/url?sa=i&url=https%3A%2F%2Fcarlosdev.wordpress.com%2F2012%2F07%2F10%2Fbig-stan%2F&psig=AOvVaw2gdmc2rMShJdbQ5ssOehCg&ust=1697244395643000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCNiZ7Jvm8YEDFQAAAAAdAAAAABAO'></img>
-        </div>
-      </div>
+      <Container>
+      <Row>
+        <Col xs={6} md={4}>
+          <Image src={Thumbsdown} rounded />
+        </Col>
+        <Col xs={6} md={4}>
+          <Image src="" rounded />
+        </Col>
+        <Col xs={6} md={4}>
+          <Image src={Thumbsup} rounded />
+        </Col>
+      </Row>
+    </Container>
+    </div>
     )
 
 }
