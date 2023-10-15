@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import Image from 'react-bootstrap/Image';
 import Nav from './UI/Navbar';
 import Auth from '../utils/auth';
-import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
+import MainLogo from '../../public/images/MainLogo.png';
 import '../styles/Home.css';
 
 export default function header() {
@@ -17,9 +19,15 @@ export default function header() {
   return (
     <div className='conatiner'>
       <div className='d-flex justify-content-center'>
-        <h1>LOGO IMAGE</h1>
+        <Image src={MainLogo} text="Cell" />
+          <div className='cellCont'>
+            <h1 className='cellTitle'>Cell</h1>
+          </div>
+          <div className='mateCont'>
+            <h1 className='mateTitle'>Mates</h1>
+          </div>
       </div>
-      <div>
+      <div className='mt-3'>
         {Auth.loggedIn() ? (
           <Nav
             links={[
@@ -53,7 +61,7 @@ export default function header() {
               </Form>
             </Modal.Body>
             <Modal.Footer>
-              <Button variant="primary" onClick={handleClose}>
+              <Button variant="primary" onClick={() => Auth.login()}>
                 Login
               </Button>
               <Button variant="secondary" onClick={handleClose}>
@@ -68,19 +76,3 @@ export default function header() {
   )
 
 }
-
-          /* <div>
-            <form action="/action_page.php">
-              <div className='mx-5'>
-                <label for="userName" className='form-label'></label>
-                <input type="text" className="nameInput form-control" id='userName' placeholder='Username'></input>
-              </div>
-              <div className='mx-5'>
-                <label for="userPassword" className='form-label'></label>
-                <input type="password" className="nameInput form-control" id='userPassword' placeholder='Password'></input>
-              </div>
-              <div className='loginBtn mt-3'>
-              <button type="button" className="btn btn-primary btn-lg">Login</button>
-              </div>
-            </form>
-        </div>*/
