@@ -1,4 +1,5 @@
 import { gql } from '@apollo/client';
+//import {Inmate} from "../../../server/models";
 
 export const LOGIN = gql`
   mutation login($email: String!, $password: String!) {
@@ -13,18 +14,18 @@ export const LOGIN = gql`
 
 export const ADD_USER = gql`
   mutation addUser(
-    $username: String!
+    $username: String
     $email: String!
     $password: String!
-    $age: Int!
-    $sex: String!
-    $location: String!
-    $description: String!
+    $age: Int
+    $sex: String
+    $location: String
+    $description: String
     $isInmate: Boolean!
+    #$inmate: Inmate()
   ) {
     addUser(
-      firstName: $firstName
-      lastName: $lastName
+      username: $username
       password: $password
       email: $email
       age: $age
@@ -32,6 +33,7 @@ export const ADD_USER = gql`
       location: $location
       description: $description
       isInmate: $isInmate
+      #inmate: {$inmate}
     ) {
       token
       user {
