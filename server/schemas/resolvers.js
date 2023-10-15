@@ -1,9 +1,8 @@
 const { User, ShopItem } = require('../models');
-const { updateMany } = require('../models/User');
 const { signToken, AuthenticationError } = require('../utils/auth');
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
-const mongoose = require('mongoose');
 
+//adding queries to get users and shop items and mutations to create/update data
 const resolvers = {
   Query: {
     user: async (parent, args, context) => {
@@ -20,8 +19,9 @@ const resolvers = {
     },
   },
   Mutation: {
-    addUser: async (parent, args) => {
-      const user = await User.create(args);
+    addUser: async (parent, {email, password, isInmate, username, age, sex, location, description}) => {
+      const user = await User.create({email, password, isInmate, username, age, sex, location, description});//, releaseDate, crime, pastConvictions });
+      console.log("user ", user);
       const token = signToken(user);
 
       return { token, user };

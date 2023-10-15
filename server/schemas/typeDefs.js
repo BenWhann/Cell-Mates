@@ -1,3 +1,4 @@
+//defining our type defs here - our models, mutations, and queries defined in the resolver
 const typeDefs = `#graphql
   type User {
     _id: ID
@@ -42,12 +43,12 @@ const typeDefs = `#graphql
   }
 
    type Query {
-     user(userId: String!): User
-     shopItems: [ShopItem]
+     user(_id: ID!): User
+     shopItems: [ShopItem]!
    }
 
    type Mutation {
-     addUser(email: String!, password: String!, isInmate: Boolean): Auth
+     addUser(email: String!, password: String!, isInmate: Boolean!, username: String, age: Int, sex: String, location: String, description: String): Auth
      login(email: String!, password: String!): Auth
      addMatch(userId: String! ): User
      addLikes(userId: String! ): User
