@@ -1,4 +1,5 @@
 import Auth from '../utils/auth';
+import Button from 'react-bootstrap/Button';
 
 export default function footer() {
 
@@ -7,7 +8,7 @@ export default function footer() {
         {Auth.loggedIn() ? (
           <div className="conatiner">
             <div className="d-flex justify-content-center">
-              <a onClick={() => Auth.logout()}> Logout</a>
+              <Button size='lg' onClick={() => Auth.logout()}> Logout</Button>
             </div>
             <div className="d-flex justify-content-center">
               <h6>Copyright 2023 by Team C</h6>

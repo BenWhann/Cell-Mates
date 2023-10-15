@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import Image from 'react-bootstrap/Image';
-import Nav from './UI/Navbar';
+import Navi from '../components/UI/Navbar';
 import Auth from '../utils/auth';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -29,14 +29,16 @@ export default function header() {
       </div>
       <div className='mt-3'>
         {Auth.loggedIn() ? (
-          <Nav
-            links={[
-              <Link key={1} className="" to="/meetmates"> Match Me </Link>,
-              <Link key={2} className="" to="/userprofile"> Profile </Link>,
-              <Link key={3} className="" to="/matchedlist"> Mates </Link>,
-              <Link key={4} className="" to="/commissary"> Match Me </Link>
-            ]}
-          />
+          <div>
+              <Navi
+                links={[
+                  <Link key={1} className="nav-link" to="/meetmates"  onClick={() => (this.expand = '')}> Match Me </Link>,
+                  <Link key={2} className="nav-link" to="/userprofile" onClick={() => (this.expand = '')}> Profile </Link>,
+                  <Link key={3} className="nav-link" to="/matchedlist" onClick={() => (this.expand = '')}> Mates </Link>,
+                  <Link key={4} className="nav-link" to="/commissary" onClick={() => (this.expand = '')}> Send Package </Link>  
+                ]}
+              />
+          </div>
         ) : (
         <div>
           <div className='lbCont'>
