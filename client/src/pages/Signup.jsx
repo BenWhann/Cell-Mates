@@ -15,7 +15,6 @@ export default function signUppage(props) {
 
   const handleChange = (event) => {
     let { name, value } = event.target;
-    console.log(event)
 
     if (name === "sex") {
       value = event.target.id[4].toUpperCase();
@@ -31,8 +30,6 @@ export default function signUppage(props) {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    //let inmateInfo = new Inmate();
-    console.log("formState, ", formState);
 
     // if(formState.isInmate === true){
     //   inmateInfo.crime = formState.crime;
@@ -47,7 +44,6 @@ export default function signUppage(props) {
         ...formState
       },
     });
-    console.log("data ", data);
     Auth.login(data.addUser.token);
 
     //    const form = event.currentTarget;
