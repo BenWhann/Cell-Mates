@@ -1,0 +1,22 @@
+.commissaryBody {
+    background-color: #f7eeed;
+}
+
+.btnColor {
+    background-color: #f191ac;
+    border: 1px solid #f191ac;
+}
+
+.btnColor:hover {
+    background-color: #f4bbc9;
+    border: 1px solid #f191ac;
+}
+
+.headers {
+    border-bottom: 1px solid #f4bbc9;
+}
+
+.cardColor {
+    background-color: #fae6e7;
+    border: 1px solid #f191ac;
+}
