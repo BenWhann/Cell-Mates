@@ -69,14 +69,14 @@ const typeDefs = `#graphql
 
    type Query {
      user(_id: ID!): User
-     users: User
+     users: [User]
      shopItems: [ShopItem]!
    }
 
    type Mutation {
      addUser(input: AddUserInput): Auth
      login(email: String!, password: String!): Auth
-     addMatch: User
+     addMatch(userId: String ): User
      addLikes(userId: String! ): User
      updatePreferences(sex: String, wanted: String ): Preference
      updateInmate(crime: String, pastConvictions: String, releaseDate: String ): Inmate

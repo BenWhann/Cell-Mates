@@ -1,31 +1,31 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_USERS = gql`
-  {
-    user {
-      _id
-      username
-      email
-      password
-      age
+  query Users {
+  users {
+    email
+    age
+    _id
+    description
+    isInmate
+    location
+    password
+    sex
+    username
+    preference {
       sex
-      location
-      profilePic
-      isInmate
-      description
-      likes
-      matches
-      inmate {
-        releaseDate
-        crime
-        pastConvictions
-      }
-      preference {
-        sex
-        wanted
-      }
+      wanted
+    }
+    inmate {
+      crime
+      pastConvictions
+      releaseDate
+    }
+    likes {
+    _id  
     }
   }
+}
 `;
 
 export const QUERY_SINGLE_USER = gql`
