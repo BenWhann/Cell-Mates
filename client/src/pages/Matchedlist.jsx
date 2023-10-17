@@ -7,19 +7,17 @@ import Image from 'react-bootstrap/Image';
 
 export default function MatchedListPage() {
     const { userId } = useParams();
-    console.log("userId ", userId)
     const { loading, data } = useQuery(QUERY_SINGLE_USER, {
         variables: { userId: userId },
     });
 
     const userInfo = data?.user || {};
-    console.log(data, " data")
 
     if (loading) {
         return <div>Loading...</div>;
     }
 
-    if (!userInfo.length) {
+    if (!userInfo.matches?.length) {
         return <h3>No Matches Yet</h3>;
     }
 

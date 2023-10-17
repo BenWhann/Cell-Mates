@@ -30,8 +30,7 @@ class AuthService {
   login(idToken) {
     // Saves user token to localStorage
     localStorage.setItem('id_token', idToken);
-
-    window.location.assign('/meetmates');
+    window.location.assign('/meetmates/'+ (this.getProfile().data._id).toString());
   }
 
   logout() {

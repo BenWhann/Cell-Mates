@@ -3,15 +3,14 @@ import Collapse from 'react-bootstrap/Collapse';
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
-//import { Inmate } from '../../../server/models';
+import Auth from "../utils/auth";
 
 
 
 export default function signUppage(props) {
-  const [formState, setFormState] = useState({ isInmate: true });
-  const [addUser, { error, data }] = useMutation(ADD_USER);
+  const [formState, setFormState] = useState({ isInmate: true, inmate: {} });
+  const [addUser] = useMutation(ADD_USER);
   const [open, setOpen] = useState(false);
-  //  const [validated, setValidated] = useState(false);
 
   const handleChange = (event) => {
     let { name, value } = event.target;
@@ -22,6 +21,28 @@ export default function signUppage(props) {
     if (name === "isInmate") {
       value = event.target.ariaExpanded === "true" ? true : false;
     }
+    if (name === "crime") {
+      setFormState({
+        ...formState,
+        inmate: { ...formState.inmate, crime: value },
+      });
+      return;
+    }
+    if (name === "pastConvictions") {
+      setFormState({
+        ...formState,
+        inmate: { ...formState.inmate, pastConvictions: value },
+      });
+      return;
+    }
+    if (name === "releaseDate") {
+      setFormState({
+        ...formState,
+        inmate: { ...formState.inmate, releaseDate: value },
+      });
+      return;
+    }
+
     setFormState({
       ...formState,
       [name]: value,
@@ -31,17 +52,13 @@ export default function signUppage(props) {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    // if(formState.isInmate === true){
-    //   inmateInfo.crime = formState.crime;
-    //   inmateInfo.pastConvictions = formState.pastConvictions;
-    //   inmateInfo.releaseDate = formState.releaseDate;
-    // }
-    //console.log("inmateInfo, ", inmateInfo);
     const { data } = await addUser({
       variables: {
-        isInmate: formState.isInmate ?? false,
-        //inmate: inmateInfo,
-        ...formState
+        input: {
+          ...formState,
+          isInmate: formState.isInmate ?? false
+        }
+
       },
     });
     Auth.login(data.addUser.token);
@@ -116,7 +133,7 @@ export default function signUppage(props) {
             <div id="inmateInfo">
               <Form.Group className="mb-3">
                 <Form.Label>Release Date</Form.Label>
-                <Form.Control name="releaseDate" type="text" onChange={handleChange}></Form.Control>
+                <Form.Control name="releaseDate" type="date" onChange={handleChange}></Form.Control>
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label>Crime</Form.Label>

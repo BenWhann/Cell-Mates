@@ -5,25 +5,29 @@ const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 //adding queries to get users and shop items and mutations to create/update data
 const resolvers = {
   Query: {
-    // user: async (parent, args, context) => {
-    //   if (context.user) {
-    //     const user = await User.findById(context.user._id).populate("inmate");
-    //     return user;
-    //   }
-
-    //   throw AuthenticationError;
-    // },
-    user: async (parent, { userId }) => {
-      return User.findOne({ _id: userId });
+    users: async (parent, args, context) => {
+      if (context.user) {
+        const users = await User.find();
+        const user = User.findById(context.user._id );
+        console.log("user", user.preference?._id);
+        var potentialMatches = users.filter(x => x._id.toString() !== context.user._id);
+        return potentialMatches;
+      }
+    },
+    user: async (parent, { _id }) => {
+      const user = User.findById({ _id }).populate('matches');
+      return user;
     },
     shopItems: async () => {
-      const shopItems = await ShopItem.findAll();
+
+      const shopItems = await ShopItem.find({});
       return shopItems;
     },
   },
   Mutation: {
-    addUser: async (parent, {email, password, isInmate, username, age, sex, location, description}) => {
-      const user = await User.create({email, password, isInmate, username, age, sex, location, description});//, releaseDate, crime, pastConvictions });
+    addUser: async (parent, args) => {
+      const {email, password, isInmate, username, age, sex, location, description, inmate} = args.input;
+      const user = await User.create({email, password, isInmate, username, age, sex, location, description, inmate});//, releaseDate, crime, pastConvictions });
       const token = signToken(user);
 
       return { token, user };
@@ -34,15 +38,15 @@ const resolvers = {
         return updatedUser;
       }
     },
-    addMatch: async (parent, context) => {
-      if (context.userId) {
-        var loggedinUser = await User.findById(context.userId);
+    addMatch: async (parent, { userId }, context) => {
+      if (context.user._id) {
+        var loggedinUser = await User.findById(context.user._id);
         //get disinst user ID likes
         if (loggedinUser.likes) { 
           loggedinUser.likes.forEach(async id => {
             var potentialMatchedUser = await User.findById(id);
-            if (potentialMatchedUser.likes.includes(context.userId)) {
-              const originalUser = await User.findByIdAndUpdate(context.userId, { $push: { matches: potentialMatchedUser } }, { new: true });
+            if (potentialMatchedUser.likes.includes(context.user._id) && !potentialMatchedUser.matches?.includes(context.user._id)) {
+              const originalUser = await User.findByIdAndUpdate(context.user._id, { $push: { matches: potentialMatchedUser } }, { new: true });
               const updatedUser = await User.findByIdAndUpdate(id, { $push: { matches: loggedinUser } }, { new: true });
             }
           });

@@ -34,7 +34,7 @@ const router = createBrowserRouter([
             element: <Userprofile/>,
           },
           {
-            path: '/meetmates',
+            path: '/meetmates/:userId',
             element: <MeetMates/>,
           },
           {

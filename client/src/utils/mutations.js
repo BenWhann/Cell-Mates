@@ -1,5 +1,4 @@
 import { gql } from '@apollo/client';
-//import {Inmate} from "../../../server/models";
 
 export const LOGIN = gql`
   mutation login($email: String!, $password: String!) {
@@ -13,34 +12,41 @@ export const LOGIN = gql`
 `;
 
 export const ADD_USER = gql`
-  mutation addUser(
-    $username: String
-    $email: String!
-    $password: String!
-    $age: Int
-    $sex: String
-    $profilePic: String
-    $location: String
-    $description: String
-    $isInmate: Boolean!
-    #$inmate: Inmate()
-  ) {
-    addUser(
-      username: $username
-      password: $password
-      email: $email
-      age: $age
-      sex: $sex
-      location: $location
-      profilePic: $profilePic
-      description: $description
-      isInmate: $isInmate
-      #inmate: {$inmate}
-    ) {
-      token
-      user {
-        _id
+  mutation AddUser($input: AddUserInput) {
+  addUser(input: $input) {
+    user {
+      age
+      _id
+      description
+      email
+      isInmate
+      location
+      password
+      profilePic
+      sex
+      username
+      inmate {
+        crime
+        pastConvictions
+        releaseDate
       }
+    }
+    }
+  }
+`;
+
+export const ADD_LIKES = gql`
+  mutation addLikes($userId: String!) {
+    addLikes(userId: $userId) {
+      _id
+    }
+  }
+`;
+
+export const ADD_MATCH = gql`
+  mutation addMatch($userId: String) {
+    addMatch(userId: $userId) {
+      _id
     }
   }
 `;
