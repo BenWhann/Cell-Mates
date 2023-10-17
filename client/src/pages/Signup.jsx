@@ -58,7 +58,7 @@ export default function signUppage(props) {
 
   return (
     <div>
-      <div>
+      <div className='m-3'>
         <h2>Signup</h2>
       </div>
       <div>

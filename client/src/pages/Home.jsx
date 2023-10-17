@@ -10,7 +10,7 @@ export default function Homepage() {
 
   return (
     <div className='d-flex justify-content-center mt-5 mx-4'>
-      <Carousel fade>
+      <Carousel className='carouselCont' fade>
         <Carousel.Item>
           <Link to="/signup">
             <Image className="homeImages" src={FirstImage} rounded />

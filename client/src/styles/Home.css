@@ -84,3 +84,65 @@ a {
     margin: 6px 0;
 
 }
+
+@media screen and (max-width: 768px) {
+
+    .carouselCont {
+
+        margin: 0px 10px;
+    
+    }
+
+    .homeImages {
+
+        width: 700px;
+        height: 450px;
+        border-radius: 5px;
+
+    }
+
+    .cellCont {
+
+        position: absolute;
+        left: 283px;
+        top: 15px;
+    
+    }
+    
+    .mateCont {
+    
+        position: absolute;
+        right: 242px;
+        top: 70px;
+    
+    }
+
+}
+
+@media screen and (max-width: 425px) {
+
+    .homeImages {
+
+        width: 400px;
+        height: 250px;
+        border-radius: 5px;
+    
+    }
+
+    .cellCont {
+
+        position: absolute;
+        left: 112px;
+        top: 15px;
+    
+    }
+    
+    .mateCont {
+    
+        position: absolute;
+        right: 70px;
+        top: 70px;
+    
+    }    
+
+}
