@@ -56,8 +56,6 @@ export default function signUppage(props) {
 
   };
 
-
-
   return (
     <div>
       <div>

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import Image from 'react-bootstrap/Image';
-import Nav from './UI/Navbar';
+import Navi from './UI/Navbar';
 import Auth from '../utils/auth';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -44,7 +44,7 @@ export default function header() {
   return (
     <div className='conatiner'>
       <div className='d-flex justify-content-center'>
-        <Image src={MainLogo} text="Cell" />
+        <Image src={MainLogo} />
         <div className='cellCont'>
           <h1 className='cellTitle'>Cell</h1>
         </div>
@@ -54,12 +54,12 @@ export default function header() {
       </div>
       <div className='mt-3'>
         {Auth.loggedIn() ? (
-          <Nav
+          <Navi
             links={[
-              <Link key={1} className="" to="/meetmates"> Match Me </Link>,
-              <Link key={2} className="" to="/userprofile"> Profile </Link>,
-              <Link key={3} className="" to={`/matchedlist/${Auth.getProfile().data._id}`}> Mates </Link>,
-              <Link key={4} className="" to="/commissary"> Match Me </Link>
+              <Link key={1} className="nav-link" to="/meetmates"> Match Me </Link>,
+              <Link key={2} className="nav-link" to="/userprofile"> Profile </Link>,
+              <Link key={3} className="nav-link" to={`/matchedlist/${Auth.getProfile().data._id}`}> Mates </Link>,
+              <Link key={4} className="nav-link" to="/commissary"> Send a Package </Link>
             ]}
           />
         ) : (
@@ -75,7 +75,6 @@ export default function header() {
               </Modal.Header>
               <Form onSubmit={handleFormSubmit}>
                 <Modal.Body>
-
                   <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                     <Form.Label>Email</Form.Label>
                     <Form.Control onChange={handleChange} type="email" name="email" placeholder="name@example.com" autoFocus />
@@ -84,10 +83,9 @@ export default function header() {
                     <Form.Label>Password</Form.Label>
                     <Form.Control onChange={handleChange} type="password" name="password" autoFocus />
                   </Form.Group>
-
                 </Modal.Body>
                 <Modal.Footer>
-                  <button type="submit" className="btn btn-primary">Sign Up</button>
+                  <button type="submit" className="btn btn-primary">Login</button>
                   <Button variant="secondary" onClick={handleClose}>
                     Exit
                   </Button>

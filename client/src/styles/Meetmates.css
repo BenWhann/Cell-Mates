@@ -1,5 +1,38 @@
-.thumbsUp {
+.thumbIconD, .thumbIconU {
 
-    background-image: url(../../public/images/green-thumbs-up-11246.png);
+    width: 80px;
+    height: auto;
+    opacity: 0.5;
+
+}
+
+.thumbIconD {
+
+    position: absolute;
+    top: 410px;
+    left: 30px;
+
+}
+
+.thumbIconU {
+
+    position: absolute;
+    top: 410px;
+    right: 30px;
+
+}
+
+.matesCont {
+
+    display: flex;
+    justify-content: center;
+
+}
+
+.matesInfo {
+
+    background-color: black;
+    width: 350px;
+    height: 300px;
 
 }
