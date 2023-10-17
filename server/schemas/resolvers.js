@@ -7,8 +7,11 @@ const resolvers = {
   Query: {
     users: async (parent, args, context) => {
       if (context.user) {
-        const user = await User.find({});
-        return user;
+        const users = await User.find();
+        const user = User.findById(context.user._id );
+        console.log("user", user.preference?._id);
+        var potentialMatches = users.filter(x => x._id.toString() !== context.user._id);
+        return potentialMatches;
       }
     },
     user: async (parent, { _id }) => {
@@ -35,15 +38,14 @@ const resolvers = {
         return updatedUser;
       }
     },
-    addMatch: async (parent, args, context) => {
+    addMatch: async (parent, { userId }, context) => {
       if (context.user._id) {
         var loggedinUser = await User.findById(context.user._id);
         //get disinst user ID likes
         if (loggedinUser.likes) { 
-          
           loggedinUser.likes.forEach(async id => {
             var potentialMatchedUser = await User.findById(id);
-            if (potentialMatchedUser.likes.includes(context.user._id)) {
+            if (potentialMatchedUser.likes.includes(context.user._id) && !potentialMatchedUser.matches?.includes(context.user._id)) {
               const originalUser = await User.findByIdAndUpdate(context.user._id, { $push: { matches: potentialMatchedUser } }, { new: true });
               const updatedUser = await User.findByIdAndUpdate(id, { $push: { matches: loggedinUser } }, { new: true });
             }

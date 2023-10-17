@@ -56,7 +56,7 @@ export default function header() {
         {Auth.loggedIn() ? (
           <Navi
             links={[
-              <Link key={1} className="nav-link" to="/meetmates"> Match Me </Link>,
+              <Link key={1} className="nav-link" to={`/meetmates/${Auth.getProfile().data._id}`}> Match Me </Link>,
               <Link key={2} className="nav-link" to="/userprofile"> Profile </Link>,
               <Link key={3} className="nav-link" to={`/matchedlist/${Auth.getProfile().data._id}`}> Mates </Link>,
               <Link key={4} className="nav-link" to="/commissary"> Send a Package </Link>

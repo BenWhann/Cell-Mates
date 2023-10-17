@@ -11,37 +11,6 @@ export const LOGIN = gql`
   }
 `;
 
-// export const ADD_USER = gql`
-//   mutation addUser(
-//     $username: String
-//     $email: String!
-//     $password: String!
-//     $age: Int
-//     $sex: String
-//     $location: String
-//     $description: String
-//     $isInmate: Boolean!
-//     $inmate: Inmate
-//   ) {
-//     addUser(
-//       username: $username
-//       password: $password
-//       email: $email
-//       age: $age
-//       sex: $sex
-//       location: $location
-//       description: $description
-//       isInmate: $isInmate
-//       inmate: $inmate
-//     ) {
-//       token
-//       user {
-//         _id
-//       }
-//     }
-//   }
-// `;
-
 export const ADD_USER = gql`
   mutation AddUser($input: AddUserInput) {
   addUser(input: $input) {
@@ -69,21 +38,15 @@ export const ADD_USER = gql`
 export const ADD_LIKES = gql`
   mutation addLikes($userId: String!) {
     addLikes(userId: $userId) {
-      token
-      user {
-        _id
-      }
+      _id
     }
   }
 `;
 
-// export const ADD_MATCH = gql`
-//   mutation addMatch() {
-//     addMatch() {
-//       token
-//       user {
-//         _id
-//       }
-//     }
-//   }
-// `;
+export const ADD_MATCH = gql`
+  mutation addMatch($userId: String) {
+    addMatch(userId: $userId) {
+      _id
+    }
+  }
+`;
