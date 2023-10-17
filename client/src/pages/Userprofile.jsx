@@ -10,13 +10,15 @@ export default function userProfilePage() {
 
     return (
         <>
-            <div id='profileHeader' className='m-3 d-flex flex-column justify-content-center'>
-                <h1>User Profile</h1>
-                {isStatic && <Button id='editBtn' variant='primary' type='submit' onClick={() => setEditMode(!isStatic)}>Edit</Button>}
-            </div>\
-            <div>
-                { isStatic ? <UserProfileStatic/> : <UserProfileEditForm/> }
-                {!isStatic && <Button id='submitBtn' variant='primary' type='submit' onClick={() => setEditMode(!isStatic)}>Submit</Button>}
+            <div className='profileBody container d-flex flex-column align-items-center'>
+                <div id='profileHeader' className='m-3 d-flex flex-column justify-content-center'>
+                    <h1 className='headers'>User Profile</h1>
+                    {isStatic && <Button className='btnColor' id='editBtn' type='submit' onClick={() => setEditMode(!isStatic)}>Edit</Button>}
+                </div>
+                <div className='container d-flex flex-column align-items-center'>
+                    { isStatic ? <UserProfileStatic/> : <UserProfileEditForm/> }
+                    {!isStatic && <Button className='btnColor' id='submitBtn' variant='primary' type='submit' onClick={() => setEditMode(!isStatic)}>Save</Button>}
+                </div>
             </div>
         </>
     )
