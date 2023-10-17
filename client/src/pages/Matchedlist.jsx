@@ -3,6 +3,8 @@ import { QUERY_SINGLE_USER } from '../utils/queries';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
+import Image from 'react-bootstrap/Image';
+
 export default function MatchedListPage() {
     const { userId } = useParams();
     const { loading, data } = useQuery(QUERY_SINGLE_USER, {
@@ -20,13 +22,26 @@ export default function MatchedListPage() {
     }
 
     return (
+      <div>
         <div>
-            <h2>Matches: </h2>
+          <h2>Matches: </h2>
             {userInfo.matches.map((match) =>
                 <div key={match._id} className="">
-                    <h4>{match.username}</h4><br />
+                  <div>
+                    <Image />
+                  </div>
+                  <div>
+                    <h4>{match.username}</h4><br/>
+                    <h4>{match.email}</h4>
+                  </div>
                 </div>)}
         </div>
+      </div>
     )
 
 }
+
+// {userInfo.matches.map((match) =>
+//     <div key={match._id} className="">
+//         <h4>{match.name}</h4><br />
+//     </div>)}

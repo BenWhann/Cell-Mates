@@ -119,11 +119,11 @@ a {
 
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 427px) {
 
     .homeImages {
 
-        width: 400px;
+        width: 350px;
         height: 250px;
         border-radius: 5px;
     

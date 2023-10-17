@@ -102,7 +102,6 @@ export default function signUppage(props) {
                   id="sex-M"
                   name="sex"
                   onChange={handleChange}
-                  className='form-check-input'
                 />
                 <Form.Check
                   type={type}
@@ -110,7 +109,6 @@ export default function signUppage(props) {
                   id="sex-F"
                   name="sex"
                   onChange={handleChange}
-                  className='form-check-input'
                 />
               </div>
             ))}
