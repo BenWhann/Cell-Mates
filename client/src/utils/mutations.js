@@ -19,6 +19,7 @@ export const ADD_USER = gql`
     $password: String!
     $age: Int
     $sex: String
+    $profilePic: String
     $location: String
     $description: String
     $isInmate: Boolean!
@@ -31,6 +32,7 @@ export const ADD_USER = gql`
       age: $age
       sex: $sex
       location: $location
+      profilePic: $profilePic
       description: $description
       isInmate: $isInmate
       #inmate: {$inmate}
