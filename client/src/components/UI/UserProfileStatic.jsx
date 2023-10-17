@@ -1,6 +1,7 @@
 import PrisonerInfo from './PrisonerInfo';
 import CivilianPreferences from './CivilianPrefernces';
 import { useState } from 'react';
+import Image from 'react-bootstrap/Image';
 
 export default function userProfilePage() {
 
@@ -16,18 +17,19 @@ export default function userProfilePage() {
                 <button id='editBtn' onClick={() => setEditMode(!isEditing)}>Edit</button>
             </div> */}
             <div id='basicInfo' className='m-3 d-flex flex-column align-items-center'>
-                <h2>Basic Information</h2>
+                <h2 className='headers'>Basic Information</h2>
                 <div>Name</div>
                 <div>Sex</div>
                 <div>Location</div>
                 <div>Profile Picture</div>
+                <Image className="" src="https://th.bing.com/th/id/OIP.FXRYRRu3s46GotImcD8EgQHaHa?w=204&h=204&c=7&r=0&o=5&pid=1.7" rounded />
             </div>
             <div id='prisonerDetails' className='m-3 d-flex flex-column align-items-center'>
                 { isPrisoner && <PrisonerInfo/>}
                 <button onClick={() => setIsPrisoner(!isPrisoner)}>Is Prisoner?</button>
             </div>
             <div id='communicationSettings' className='m-3 d-flex flex-column align-items-center'>
-                <h2>Communication Settings</h2>
+                <h2 className='headers'>Communication Settings</h2>
                 <div>Allow Email Communication?</div>
             </div>
             <div id='civilianPreferences' className='m-3 d-flex flex-column align-items-center'>
