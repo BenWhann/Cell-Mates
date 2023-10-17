@@ -3,8 +3,9 @@ import CivilianPreferences from './CivilianPrefernces';
 import { useState } from 'react';
 import Image from 'react-bootstrap/Image';
 
-export default function userProfilePage() {
+export default function userProfilePage(props) {
 
+    console.log(props.user);
     const [isPrisoner, setIsPrisoner] = useState(true);
     const [isCivilian, setIsCivilian] = useState(true);
     //const [isEditing, setEditMode] = useState(false);

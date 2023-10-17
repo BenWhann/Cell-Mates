@@ -9,8 +9,9 @@ const resolvers = {
       if (context.user) {
         const users = await User.find();
         const user = User.findById(context.user._id );
-        console.log("user", user.preference?._id);
-        var potentialMatches = users.filter(x => x._id.toString() !== context.user._id);
+        console.log("user", user.isInmate);
+        console.log(users.select(x => x.isInmate).toList())
+        var potentialMatches = users.filter(x => x._id.toString() !== context.user._id && x.isInmate === !user.isInmate);
         return potentialMatches;
       }
     },
