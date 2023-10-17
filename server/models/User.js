@@ -9,7 +9,7 @@ const inmateSchema = new Schema({
   },
   releaseDate: {
     type: Date,
-    get: (timestamp) => dateFormat(timestamp)
+    get: (date) => Date.parse(date)
   },
   crime: {
     type: String,
