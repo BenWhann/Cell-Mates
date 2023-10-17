@@ -9,8 +9,30 @@ import Row from 'react-bootstrap/Row';
 import { Link } from 'react-router-dom';
 import Thumbsup from '../../public/images/thumbsup.png'
 import Thumbsdown from '../../public/images/thumbsdown.png'
+import { useMutation, useQuery } from '@apollo/client';
+import { ADD_LIKES, ADD_MATCH } from '../utils/mutations';
+import { QUERY_USERS } from '../utils/queries';
+import { useParams } from 'react-router-dom';
 
 export default function meetMatesPage() {
+  const [addLikes, { likes }] = useMutation(ADD_LIKES);
+  const [addMatch, { matches }] = useMutation(ADD_MATCH);
+  const { userId } = useParams();
+  const { loading, data } = useQuery(QUERY_USERS, {
+       variables: { userId: userId },
+   });
+
+  const userInfo = data?.user || {};
+
+  const handleOnClick = async (event) => {
+    event.preventDefault();
+
+    const { likes } = await addLikes({
+      variables: { userId: user},
+    });
+
+    const { matches } = await addMatch();
+  };
 
     return (
       <div>
@@ -22,7 +44,7 @@ export default function meetMatesPage() {
           <Image className='matesInfo' src="" rounded></Image>
           </Link>
           <Link>
-            <Image className='thumbIconU' src={Thumbsup} rounded/>
+            <Image className='thumbIconU' src={Thumbsup} roundedonClick={handleOnClick} />
           </Link>
         </div>
       </div>

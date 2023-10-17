@@ -43,6 +43,7 @@ export const QUERY_SINGLE_USER = gql`
       description
       matches {
         _id
+        username
       }
       likes {
         _id
