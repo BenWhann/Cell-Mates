@@ -1,7 +1,7 @@
 import Form from 'react-bootstrap/Form';
 import Image from 'react-bootstrap/Image';
 
-export default function userProfilePage(props) {
+export default function userProfilePage() {
 
     return (
         <Form className='container d-flex flex-column align-items-center'>
