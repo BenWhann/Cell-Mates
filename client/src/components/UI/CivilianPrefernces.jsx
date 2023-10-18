@@ -1,25 +1,9 @@
-export default function prisonerInfo(props) {
-
-    // console.log(props.user.preference.sex)
-    const isInmate = props.user.isInmate;
-
-
+export default function prisonerInfo() {
     return (
         <>
-        {isInmate ? 
-
-        <>
-            <h2 className='headers'>Civilian Preferences</h2>
-            <div>Preferred Sex: {props.user.preference.sex}</div>
-            <div>Wanted: {props.user.preference.wanted}</div>
-        </>
-
-        :
-        
-        <div>N/A</div>
-
-        }
-
+        <h2 className='headers'>Civilian Preferences</h2>
+        <div>Sentence Length: </div>
+        <div>Deal Breaker Crimes: </div>
         </>
     )
 }

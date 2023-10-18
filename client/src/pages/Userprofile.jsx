@@ -15,7 +15,7 @@ export default function userProfilePage() {
         variables: { userId: userId },
     });
     const userInfo = data?.user || {};
-    // console.log("useIno ", userInfo)
+    console.log("useIno ", userInfo)
    // let gent =
 
     return (
