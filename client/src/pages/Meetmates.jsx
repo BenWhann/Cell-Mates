@@ -11,10 +11,8 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 
 export default function meetMatesPage() {
-
   const [addLikes, { likes }] = useMutation(ADD_LIKES);
   const [addMatch, { matches }] = useMutation(ADD_MATCH);
-  
   const { userId } = useParams();
   const { loading, data } = useQuery(QUERY_USERS);
   const users = data?.users || {};
@@ -55,9 +53,9 @@ export default function meetMatesPage() {
             <Image className='thumbIconD' src={Thumbsdown} rounded onClick={handleOnClickDisLike}/>
           </Link>
           <Link>
-            <Image className='matesInfo' src={users[index]?.profilePic} rounded></Image>
-              <h4>{users[index]?.username}</h4>
-              <p>{users[index]?.description}</p>
+          <Image className='matesInfo' src="" rounded></Image>
+          <h4>{users[index]?.username}</h4>
+          <p>{users[index]?.description}</p>
           </Link>
           <Link>
             <Image className='thumbIconU' src={Thumbsup} rounded onClick={handleOnClickLike} />
@@ -67,3 +65,21 @@ export default function meetMatesPage() {
     )
 
 }
+
+{/* <Container className='mt-3'>
+<Row>
+  <Col>
+    <Link to='/meetmates'>
+      <Image className='thumbIconD' src={Thumbsdown} rounded/>
+    </Link>
+  </Col>
+  <Col>
+    <Image className='matesInfo' src="" rounded></Image>
+  </Col>
+  <Col>
+  <Link>
+    <Image className='thumbIconU' src={Thumbsup} rounded/>
+    </Link>
+  </Col>
+</Row>
+</Container> */}

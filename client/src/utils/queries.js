@@ -9,7 +9,6 @@ export const QUERY_USERS = gql`
     description
     isInmate
     location
-    profilePic
     password
     sex
     username
@@ -45,13 +44,6 @@ export const QUERY_SINGLE_USER = gql`
       matches {
         _id
         username
-        email
-        age
-        sex
-        location
-        profilePic
-        isInmate
-        description
       }
       likes {
         _id
