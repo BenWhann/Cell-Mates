@@ -1,5 +1,6 @@
 import '../styles/Meetmates.css';
 import Image from 'react-bootstrap/Image';
+import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import Thumbsup from '../../public/images/thumbsup.png'
 import Thumbsdown from '../../public/images/thumbsdown.png'
@@ -51,17 +52,25 @@ export default function meetMatesPage() {
     return (
       <div>
         <div className='matesCont mt-5'>
+          {users.length === index ? (
+            <h2>No more matches</h2>
+          ) : (
+            <div className='mmCont'>
+              <div className='matesInfo'>
+                <Image className='mmPic' src={users[index]?.profilePic}></Image>
+              <div className='matesBio'>
+                <h4>{users[index]?.username} {users[index]?.age}</h4>
+                <p>{users[index]?.description}</p>
+              </div>
+              </div>
           <Link>
             <Image className='thumbIconD' src={Thumbsdown} rounded onClick={handleOnClickDisLike}/>
           </Link>
           <Link>
-            <Image className='matesInfo' src={users[index]?.profilePic} rounded></Image>
-              <h4>{users[index]?.username}</h4>
-              <p>{users[index]?.description}</p>
-          </Link>
-          <Link>
             <Image className='thumbIconU' src={Thumbsup} rounded onClick={handleOnClickLike} />
           </Link>
+          </div>
+          )}
         </div>
       </div>
     )
