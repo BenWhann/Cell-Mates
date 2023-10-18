@@ -1,7 +1,12 @@
 import Form from 'react-bootstrap/Form';
 import Image from 'react-bootstrap/Image';
+import CivilianPreferncesEdit from './CivilianPreferncesEdit';
+import PrisonerInfoEdit from './PrisonerInfoEdit';
 
 export default function userProfilePage(props) {
+
+    const isInmate = props.user.isInmate;
+    const userInfo = props.user;
 
     return (
         <Form className='container d-flex flex-column align-items-center'>
@@ -9,19 +14,25 @@ export default function userProfilePage(props) {
                 <h2 className='headers'>Basic Information</h2>
                 <Form.Group className='mb-3' controlId='userName'>
                     <Form.Label>Name</Form.Label>
-                    <Form.Control type='text' placeholder='' />
+                    <Form.Control type='text' placeholder={props.user.username} />
                     <Form.Text className=''></Form.Text>
                 </Form.Group>
 
                 <Form.Group className='mb-3' controlId='userSex'>
                     <Form.Label>Sex</Form.Label>
-                    <Form.Control type='text' placeholder='' />
+                    <Form.Control type='text' placeholder={props.user.sex} />
                     <Form.Text className=''></Form.Text>
                 </Form.Group>
 
                 <Form.Group className='mb-3' controlId='userLocation'>
                     <Form.Label>Location</Form.Label>
-                    <Form.Control type='text' placeholder='' />
+                    <Form.Control type='text' placeholder={props.user.location} />
+                    <Form.Text className=''></Form.Text>
+                </Form.Group>
+
+                <Form.Group className='mb-3' controlId='userDescription'>
+                    <Form.Label>Description</Form.Label>
+                    <Form.Control type='text' placeholder={props.user.description} />
                     <Form.Text className=''></Form.Text>
                 </Form.Group>
 
@@ -32,45 +43,7 @@ export default function userProfilePage(props) {
                 </Form.Group>
             </div>
             <div>
-                <h2 className='headers'>Prisoner Details</h2>
-
-                <Form.Group className='mb-3' controlId='prisonerAddress'>
-                    <Form.Label>Prison Address</Form.Label>
-                    <Form.Control type='text' placeholder='' />
-                    <Form.Text className=''></Form.Text>
-                </Form.Group>
-
-                <Form.Group className='mb-3' controlId='wishList'>
-                    <Form.Label>Commissary Wish List</Form.Label>
-                    <Form.Control type='text' placeholder='' />
-                    <Form.Text className=''></Form.Text>
-                </Form.Group>
-            </div>
-
-            <div className='container d-flex flex-column align-items-center'>
-                <h2 className='headers'>Communication Settings</h2>
-
-                <Form.Group className='container d-flex flex-column align-items-center' controlId='emailComm'>
-                    <Form.Label>Allow Email Communication?</Form.Label>
-                    <Form.Check type='checkbox' label='Check for yes.' />
-                    <Form.Text className=''></Form.Text>
-                </Form.Group>
-            </div>
-
-            <div>
-                <h2 className='headers'>Civilian Preferences</h2>
-
-                <Form.Group className='mb-3' controlId='sentenceLength'>
-                    <Form.Label>Sentence Length</Form.Label>
-                    <Form.Control type='text' placeholder='' />
-                    <Form.Text className=''></Form.Text>
-                </Form.Group>
-
-                <Form.Group className='mb-3' controlId='badCrimes'>
-                    <Form.Label>Deal Breaker Crimes</Form.Label>
-                    <Form.Control type='text' placeholder='' />
-                    <Form.Text className=''></Form.Text>
-                </Form.Group>
+                { isInmate ? <PrisonerInfoEdit user={userInfo} /> : <CivilianPreferncesEdit user={userInfo} /> }
             </div>
         </Form>
     )
