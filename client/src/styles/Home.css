@@ -250,11 +250,16 @@ a {
 
 @media screen and (min-width: 1024px) {
 
+    .carouselCont {
+
+        margin: 0px 200px;
+
+    }
+
     .homeImages {
 
-        width: 380px;
-
-        height: 250px;
+        width: 600px;
+        height: 350px;
         border-radius: 5px;
     
     }
@@ -262,7 +267,7 @@ a {
     .cellCont {
 
         position: absolute;
-        left: 112px;
+        left: 414px;
         top: 15px;
     
     }
@@ -270,7 +275,7 @@ a {
     .mateCont {
     
         position: absolute;
-        right: 70px;
+        right: 370px;
         top: 70px;
     
     }    

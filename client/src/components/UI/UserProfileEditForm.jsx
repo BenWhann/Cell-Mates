@@ -9,7 +9,7 @@ export default function userProfilePage(props) {
     const userInfo = props.user;
 
     return (
-        <Form className='container d-flex flex-column align-items-center'>
+        <Form className='userFormEdit container d-flex flex-column align-items-center'>
             <div>
                 <h2 className='headers'>Basic Information</h2>
                 <Form.Group className='mb-3' controlId='userName'>
@@ -38,7 +38,7 @@ export default function userProfilePage(props) {
 
                 <Form.Group className='container d-flex flex-column align-items-center' controlId='userProfilePicture'>
                     <Form.Label>Profile Picture</Form.Label>
-                    <Image className="" src="https://th.bing.com/th/id/OIP.FXRYRRu3s46GotImcD8EgQHaHa?w=204&h=204&c=7&r=0&o=5&pid=1.7" rounded />
+                    <Image className="editFormPic" src={props.user.profilePic} rounded />
                     <Form.Text className=''></Form.Text>
                 </Form.Group>
             </div>

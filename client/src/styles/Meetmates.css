@@ -1,3 +1,9 @@
+.matesCont {
+
+    color: #1b1464;
+
+}
+
 .thumbIconD, .thumbIconU {
 
     width: 80px;
@@ -20,6 +26,37 @@
     animation-name: rotateD;
     animation-iteration-count: infinite;
     animation-direction: reverse;
+
+}
+
+.footCont {
+
+    color: #1b1464;
+
+}
+
+.logoutBtn {
+
+    width: 100px;
+    border-radius: 10px;
+    border: 1px solid #1b1464;
+    background-color: #00000000;
+    font-size: 21px;
+    min-height: 48px;
+    line-height: 1.29;
+    color: #f267a0;
+    font-weight: 400;
+    box-shadow: 10px 10px 20px #bebebe,
+    -15px -15px 30px #ffffff
+
+}
+
+.logoutBtn:hover {
+
+    background-color: #f267a0;
+    color: #1b1464;
+    box-shadow: 10px 10px 20px #fd92a6,
+    -15px -15px 30px #ffffff
 
 }
 
@@ -80,19 +117,28 @@
 
 .mmPic {
 
-    width: 350px;
+    width: 320px;
     height: 280px;
-    border-radius: 6px 6px 0px 0px;
+    margin: 15px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px #f267a0,
+    -15px -15px 30px #ffffff
+
+}
+
+.matesInfo {
+
+    width: 350px;
 
 }
 
 .matesBio {
 
-    margin: 8px 0px 0px 5px;
+    margin: 8px 0px 0px 24px;
 
 }
 
-@media screen and ( max-width: 768px ) {
+@media screen and ( min-width: 768px ) {
 
     .thumbIconD, .thumbIconU {
 
@@ -106,7 +152,7 @@
     
         position: absolute;
         top: 410px;
-        left: 110px;
+        left: 150px;
     
     }
     
@@ -114,21 +160,34 @@
     
         position: absolute;
         top: 410px;
-        right: 110px;
+        right: 150px;
     
     }
 
     .matesInfo {
 
-      
+        width: 440px;
+        height: 390px;
+
+    }
+
+    .mmPic {
+
+        width: 400px;
+        margin: 20px;
+        border-radius: 10px;
+        box-shadow: 10px 10px 20px #f267a0,
+                   -15px -15px 30px #ffffff
+
+    }
 
 }
 
-@media screen and ( max-width: 426px ) {
+@media screen and ( min-width: 1024px ) {
 
     .thumbIconD, .thumbIconU {
 
-        width: 80px;
+        width: 110px;
         height: auto;
         opacity: 0.5;
     
@@ -138,7 +197,7 @@
     
         position: absolute;
         top: 410px;
-        left: 30px;
+        left: 250px;
     
     }
     
@@ -146,14 +205,25 @@
     
         position: absolute;
         top: 410px;
-        right: 30px;
+        right: 250px;
     
     }
 
     .matesInfo {
 
-      
-    
+        width: 500px;
+        height: 420px;
+
+    }
+
+    .mmPic {
+
+        width: 440px;
+        margin: 30px;
+        border-radius: 10px;
+        box-shadow: 10px 10px 20px #f267a0,
+                   -15px -15px 30px #ffffff
+
     }
 
     

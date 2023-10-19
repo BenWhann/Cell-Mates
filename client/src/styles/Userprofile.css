@@ -1,18 +1,59 @@
 .profileBody {
-    background-color: #f7eeed;
+
+
+}
+
+#userProfile {
+
+    color: #1b1464;
+
 }
 
 .btnColor {
-    background-color: #f191ac;
-    border: 1px solid #f191ac;
-    display: flex;
+
+    margin-top: 15px;
+    width: 100px;
+    border-radius: 10px;
+    border: 1px solid #1b1464;
+    background-color: #00000000;
+    font-size: 21px;
+    min-height: 48px;
+    line-height: 1.29;
+    color: #f267a0;
+    font-weight: 400;
+    box-shadow: 10px 10px 20px #bebebe,
+               -8px -8px 16px #ffffff
+
 }
 
 .btnColor:hover {
-    background-color: #f4bbc9;
-    border: 1px solid #f191ac;
+
+    background-color: #f267a0;
+    color: #1b1464;
+    box-shadow: 10px 10px 20px #fd92a6,
+               -8px -8px 16px #ffffff
+
 }
 
-.headers {
-    border-bottom: 1px solid #f4bbc9;
+#deleteBtn {
+
+    width: 180px;
+
+}
+
+.userProfPic, .editFormPic {
+
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px #f267a0,
+    -15px -15px 30px #ffffff
+
+}
+
+.pEditInfo, .userFormEdit {
+
+    color: #1b1464;
+
 }
