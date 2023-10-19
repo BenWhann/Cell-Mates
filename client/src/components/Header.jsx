@@ -56,10 +56,10 @@ export default function header() {
         {Auth.loggedIn() ? (
           <Navi
             links={[
-              <Link key={1} className="nav-link" to={`/meetmates/${Auth.getProfile().data._id}`}> Match Me </Link>,
-              <Link key={2} className="nav-link" to="/userprofile"> Profile </Link>,
-              <Link key={3} className="nav-link" to={`/matchedlist/${Auth.getProfile().data._id}`}> Mates </Link>,
-              <Link key={4} className="nav-link" to="/commissary"> Send a Package </Link>
+              <Link key={1} className="nav-link navLink" to={`/meetmates/${Auth.getProfile().data._id}`}> Match Me </Link>,
+              <Link key={2} className="nav-link navLink" to="/userprofile"> Profile </Link>,
+              <Link key={3} className="nav-link navLink" to={`/matchedlist/${Auth.getProfile().data._id}`}> Mates </Link>,
+              <Link key={4} className="nav-link navLink" to="/commissary"> Send a Package </Link>
             ]}
           />
         ) : (
@@ -69,7 +69,7 @@ export default function header() {
                 Login
               </Button>
             </div>
-            <Modal show={show} onHide={handleClose}>
+            <Modal className='modFormCont' show={show} onHide={handleClose}>
               <Modal.Header closeButton>
                 <Modal.Title>Please Login</Modal.Title>
               </Modal.Header>
@@ -81,14 +81,16 @@ export default function header() {
                   </Form.Group>
                   <Form.Group className="mb-3" placeholder="password">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control onChange={handleChange} type="password" name="password" autoFocus />
+                    <Form.Control onChange={handleChange} type="password" name="password" placeholder='********' autoFocus />
                   </Form.Group>
                 </Modal.Body>
                 <Modal.Footer>
-                  <button type="submit" className="btn btn-primary">Login</button>
-                  <Button variant="secondary" onClick={handleClose}>
+                  <button type="submit" className="modLoginBtn">
+                    Login
+                  </button>
+                  <button className='modExitBtn' onClick={handleClose}>
                     Exit
-                  </Button>
+                  </button>
                 </Modal.Footer>
               </Form>
             </Modal>
