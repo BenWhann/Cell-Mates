@@ -1,9 +1,6 @@
 export default function prisonerInfo(props) {
 
     const isInmate = props.user.isInmate;
-    console.log('isInmate', isInmate)
-
-    //got rid of ? : <div>N/A</div>
 
     return (
         <>

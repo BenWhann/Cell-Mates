@@ -6,8 +6,6 @@ import Thumbsdown from '../../public/images/thumbsdown.png'
 import { useMutation, useQuery } from '@apollo/client';
 import { ADD_LIKES, ADD_MATCH } from '../utils/mutations';
 import { QUERY_USERS } from '../utils/queries';
-import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
 import { useState } from 'react';
 
 export default function meetMatesPage() {
@@ -15,13 +13,11 @@ export default function meetMatesPage() {
   const [addLikes, { likes }] = useMutation(ADD_LIKES);
   const [addMatch, { matches }] = useMutation(ADD_MATCH);
   
-  const { userId } = useParams();
   const { loading, data } = useQuery(QUERY_USERS);
   const users = data?.users || {};
   
   const userLength = data?.users.length;
   let [index, setIndex] = useState(0);
-  console.log("dusersata", users)
 
  
   const handleOnClickLike = async (event) => {
