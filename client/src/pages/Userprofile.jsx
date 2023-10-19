@@ -22,10 +22,13 @@ export default function userProfilePage() {
 
     //mutation to delete a user and then logout
     const deleteUserAndLogout = async (event) => {
-        await deleteUser({
-            variables: { id: userId }
-        });
-        Auth.logout();
+         var success = await deleteUser({
+             variables: { userId: userInfo._id }
+         });
+         if(!success.errors)
+         {
+            Auth.logout();
+         }
     };
 
     //if user clicks edit button use edit form otherwise using static form
