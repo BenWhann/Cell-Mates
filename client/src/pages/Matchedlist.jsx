@@ -33,7 +33,7 @@ export default function MatchedListPage() {
 
     return (
       <div className='mt-5'>
-        <div>
+        <div className='matesTitle'>
           <h2>Matches: </h2>
         </div>
         <Mymatches />

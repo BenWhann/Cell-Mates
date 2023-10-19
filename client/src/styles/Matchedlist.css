@@ -1,5 +1,76 @@
+.matesTitle {
+
+    margin-left: 8px;
+
+}
+
 .matchedUser {
 
-    margin-right: 8px;
+    margin: 15px;
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow: 15px 15px 30px #bebebe,
+               -15px -15px 30px #ffffff
+
+}
+
+.matchedPic  {
+
+    height: 120px;
+    border: 10px 10px 0px 0px;
+
+}
+
+.mmlInfo {
+
+    margin-left: 8px;
+
+}
+
+@media screen and ( min-width: 767px ) {
+
+    .matchedUser {
+
+        margin-right: 20px;
+        height: 360px;
+        width: 300px;
+
+    
+    }
+    
+    .matchedPic  {
+    
+        height: 140px;
+        width: 200px;
+        margin: 10px 0px 0px 10px;
+    
+    }
+
+}
+
+@media screen and ( min-width: 1023px ) {
+
+    .matesTitle {
+
+        margin-left: 30px;
+    
+    }
+
+    .matchedUser {
+
+        margin-right: 25px;
+        height: 360px;
+        width: 300px;
+
+    
+    }
+    
+    .matchedPic  {
+    
+        height: 140px;
+        width: 200px;
+        margin: 10px 0px 0px 10px;
+    
+    }
 
 }
