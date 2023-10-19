@@ -5,6 +5,7 @@
 .btnColor {
     background-color: #f191ac;
     border: 1px solid #f191ac;
+    display: flex;
 }
 
 .btnColor:hover {

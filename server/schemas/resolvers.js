@@ -13,8 +13,8 @@ const resolvers = {
         return potentialMatches;
       }
     },
-    user: async (parent, { _id }) => {
-      const user = User.findById({ _id }).populate('matches');
+    user: async (parent, { id }, context) => {
+      const user = await User.findById(context.user._id).populate('matches');
       return user;
     },
     shopItems: async () => {
@@ -30,6 +30,11 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
+    },
+    deleteUser: async (parent,{userId}, context) => {
+      if(userId){
+        return await User.findByIdAndDelete(userId);
+      }
     },
     addLikes: async (parent, { userId }, context) => {
       if (context.user) {

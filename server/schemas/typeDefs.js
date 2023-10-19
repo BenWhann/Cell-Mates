@@ -80,6 +80,7 @@ const typeDefs = `#graphql
 
    type Mutation {
      addUser(input: AddUserInput): Auth
+     deleteUser(userId: String): User
      login(email: String!, password: String!): Auth
      addMatch(userId: String ): User
      addLikes(userId: String! ): User
