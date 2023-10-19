@@ -37,6 +37,8 @@ const resolvers = {
       }
     },
     addLikes: async (parent, { userId }, context) => {
+      //when a user clicks thumbs up then we add a like
+      //add matches mutation is run directly after to add potential match
       if (context.user) {
         const updatedUser = await User.findByIdAndUpdate(context.user._id, { $push: { likes: userId } }, { new: true });
         return updatedUser;
@@ -57,9 +59,10 @@ const resolvers = {
         }
       }
     },
-    updateUser: async (parent, args, context) => {
+    updateUser: async (parent, {input}, context) => {
+      const {username, age, sex, location, description, profilePic} = input;
       if (context.user) {
-        return await User.findByIdAndUpdate(context.user._id, { $set: { username: args.username, age: args.age, sex: args.sex, location: args.location, profilePic: args.profilePic, description: args.description } }, { new: true });
+        return await User.findByIdAndUpdate(context.user._id, { $set: { username, age, sex, location, profilePic, description } }, { new: true });
       }
     },
     updatePreferences: async (parent, args, context) => {

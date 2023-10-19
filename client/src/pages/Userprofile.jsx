@@ -18,19 +18,18 @@ export default function userProfilePage() {
     const { loading, data } = useQuery(QUERY_SINGLE_USER, {
         variables: { id: userId },
     });
-    console.log('userId', userId)
-    console.log('Data', data)
     const userInfo = data?.user || {};
 
+    //mutation to delete a user and then logout
     const deleteUserAndLogout = async (event) => {
-        console.log("userId delete ", userId)
         await deleteUser({
             variables: { id: userId }
         });
-        console.log('made it to logout!')
         Auth.logout();
     };
 
+    //if user clicks edit button use edit form otherwise using static form
+    //use state to update static variable
     return (
         <>
             <div className='profileBody container d-flex flex-column align-items-center'>
@@ -41,7 +40,6 @@ export default function userProfilePage() {
                 </div>
                 <div className='container d-flex flex-column align-items-center'>
                     {isStatic ? <UserProfileStatic user={userInfo} /> : <UserProfileEditForm user={userInfo} />}
-                    {!isStatic && <Button className='btnColor' id='submitBtn' variant='primary' type='submit' onClick={() => setEditMode(!isStatic)}>Save</Button>}
                 </div>
             </div>
         </>

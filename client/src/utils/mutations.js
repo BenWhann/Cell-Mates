@@ -42,6 +42,19 @@ export const DELETE_USER = gql`
   }
 `;
 
+export const UPDATE_USER = gql`
+  mutation UpdateUser($input: AddUserInput) {
+  updateUser(input: $input) {
+    description
+    location
+    sex
+    username
+    profilePic
+    age
+  }
+}
+`;
+
 export const ADD_LIKES = gql`
   mutation addLikes($userId: String!) {
     addLikes(userId: $userId) {

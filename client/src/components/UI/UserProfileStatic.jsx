@@ -3,10 +3,7 @@ import CivilianPreferences from './CivilianPrefernces';
 import Image from 'react-bootstrap/Image';
 
 export default function userProfilePage(props) {
-
-    console.log('UserProps', props.user);
     const isInmate = props.user.isInmate;
-    console.log(isInmate)
     const userInfo = props.user;
 
     return (
@@ -19,6 +16,7 @@ export default function userProfilePage(props) {
                 <div>Sex: {props.user.sex}</div>
                 <div>Location: {props.user.location}</div>
                 <div>Description: {props.user.description}</div>
+                <div>Age: {props.user.age}</div>
             </div>
             <div id='prisonerDetails' className='m-3 d-flex flex-column align-items-center'>
                 { isInmate ? <PrisonerInfo user={userInfo}/> : <CivilianPreferences user={userInfo}/>}
