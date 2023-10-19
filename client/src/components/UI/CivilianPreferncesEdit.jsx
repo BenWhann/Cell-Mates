@@ -2,6 +2,7 @@ import Form from 'react-bootstrap/Form';
 
 export default function CivilianPreferncesEdit(props) {
 
+    // console.log(props.user)
     const isInmate = props.user.isInmate;
 
     return (

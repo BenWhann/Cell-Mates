@@ -88,7 +88,7 @@ export default function signUppage(props) {
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Email</Form.Label>
-            <Form.Control placeholder='Email' name="email" type="email" required onChange={handleChange}></Form.Control>
+            <Form.Control name="email" type="email" required placeholder="name@example.com" onChange={handleChange}></Form.Control>
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Password</Form.Label>
@@ -117,7 +117,11 @@ export default function signUppage(props) {
           </Form.Group>
           <Form.Group className="mb-3" name="location">
             <Form.Label>Location</Form.Label>
-            <Form.Control placeholder={'City, State'} name="location" type="text" required onChange={handleChange}></Form.Control>
+            <Form.Control name="location" type="text" required placeholder='City, State' onChange={handleChange}></Form.Control>
+          </Form.Group>
+          <Form.Group className="mb-3" name="profilePic">
+            <Form.Label>Profile Picture</Form.Label>
+            <Form.Control name="profilePic" type="text" required placeholder='Image URL' onChange={handleChange}></Form.Control>
           </Form.Group>
           <Form.Group className="mb-3" name="isInmate">
             <Form.Label>Are you an Inmate</Form.Label>
