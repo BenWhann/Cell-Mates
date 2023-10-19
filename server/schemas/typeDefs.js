@@ -3,13 +3,13 @@ const typeDefs = `#graphql
   type User {
     _id: ID
     username: String
-    email: String
-    password: String
+    email: String!
+    password: String!
     age: Int
     sex: String
     location: String
     profilePic: String
-    isInmate: Boolean
+    isInmate: Boolean!
     description: String
     matches: [User]
     likes: [User]
@@ -24,15 +24,16 @@ const typeDefs = `#graphql
   input AddUserInput {
     _id: ID
     username: String
-    email: String!
-    password: String!
+    email: String
+    password: String
     age: Int
     sex: String
     location: String
     profilePic: String
-    isInmate: Boolean!
+    isInmate: Boolean
     description: String
     inmate: InmateInput
+    preference: PreferenceInput
   }
 
   input InmateInput {
@@ -42,17 +43,21 @@ const typeDefs = `#graphql
     pastConvictions: String
   }
 
-  type Inmate {
-    _id: ID
-    releaseDate: String
-    crime: String
-    pastConvictions: String
-  }
-
-  type Preference {
+  input PreferenceInput {
     _id: ID
     sex: String
     wanted: String
+  }
+
+  type Preference {
+    sex: String
+    wanted: String
+  }
+
+  type Inmate {
+    releaseDate: String
+    crime: String
+    pastConvictions: String
   }
 
   type ShopItem {
@@ -75,6 +80,7 @@ const typeDefs = `#graphql
 
    type Mutation {
      addUser(input: AddUserInput): Auth
+     deleteUser(userId: String): User
      login(email: String!, password: String!): Auth
      addMatch(userId: String ): User
      addLikes(userId: String! ): User

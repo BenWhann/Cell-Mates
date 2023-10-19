@@ -1,10 +1,6 @@
 const { Schema, model } = require('mongoose');
 
 const preferencesSchema = new Schema({
-    userId: {
-        type: Schema.Types.ObjectId,
-        ref: 'User'
-    },
     sex: {
         type: String,
         trim: true,

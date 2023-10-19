@@ -1,10 +1,6 @@
 const { Schema, model } = require('mongoose');
 
 const inmateSchema = new Schema({
-    userId: {
-      type: Schema.Types.ObjectId,
-      ref: 'User'
-    },
     releaseDate: {
       type: Date,
       get: (timestamp) => dateFormat(timestamp)

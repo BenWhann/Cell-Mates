@@ -30,8 +30,8 @@ export const QUERY_USERS = gql`
 `;
 
 export const QUERY_SINGLE_USER = gql`
-  query getSingleUser($userId: ID!) {
-    user(_id: $userId) {
+  query User($id: ID!) {
+    user(_id: $id) {
       _id
       username
       email
@@ -57,13 +57,11 @@ export const QUERY_SINGLE_USER = gql`
         _id
       }
       inmate {
-        _id
         releaseDate
         crime
         pastConvictions
       }
       preference {
-        _id
         sex
         wanted
       }

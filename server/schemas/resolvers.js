@@ -8,14 +8,13 @@ const resolvers = {
     users: async (parent, args, context) => {
       if (context.user) {
         const users = await User.find();
-        const user = User.findById(context.user._id );
-        console.log("user", user.preference?._id);
-        var potentialMatches = users.filter(x => x._id.toString() !== context.user._id);
+        const user = await User.findById(context.user._id );
+        var potentialMatches = users.filter(x => x._id.toString() !== context.user._id && x.isInmate === !user.isInmate);
         return potentialMatches;
       }
     },
-    user: async (parent, { _id }) => {
-      const user = User.findById({ _id }).populate('matches');
+    user: async (parent, { id }, context) => {
+      const user = await User.findById(context.user._id).populate('matches');
       return user;
     },
     shopItems: async () => {
@@ -25,12 +24,17 @@ const resolvers = {
     },
   },
   Mutation: {
-    addUser: async (parent, args) => {
-      const {email, password, isInmate, username, age, sex, location, description, inmate} = args.input;
-      const user = await User.create({email, password, isInmate, username, age, sex, location, description, inmate});//, releaseDate, crime, pastConvictions });
+    addUser: async (parent, {input}) => {
+      const {email, password, isInmate, username, sex, location, description, profilePic, inmate} = input;
+      const user = await User.create({email, password, isInmate, username, sex, location, description, profilePic, inmate});
       const token = signToken(user);
 
       return { token, user };
+    },
+    deleteUser: async (parent,{userId}, context) => {
+      if(userId){
+        return await User.findByIdAndDelete(userId);
+      }
     },
     addLikes: async (parent, { userId }, context) => {
       if (context.user) {
