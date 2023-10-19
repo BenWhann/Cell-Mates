@@ -8,9 +8,8 @@ const resolvers = {
     users: async (parent, args, context) => {
       if (context.user) {
         const users = await User.find();
-        const user = User.findById(context.user._id );
-        console.log("user", user.preference?._id);
-        var potentialMatches = users.filter(x => x._id.toString() !== context.user._id);
+        const user = await User.findById(context.user._id );
+        var potentialMatches = users.filter(x => x._id.toString() !== context.user._id && x.isInmate === !user.isInmate);
         return potentialMatches;
       }
     },
@@ -25,9 +24,9 @@ const resolvers = {
     },
   },
   Mutation: {
-    addUser: async (parent, args) => {
-      const {email, password, isInmate, username, age, sex, location, description, inmate} = args.input;
-      const user = await User.create({email, password, isInmate, username, age, sex, location, description, inmate});//, releaseDate, crime, pastConvictions });
+    addUser: async (parent, {input}) => {
+      const {email, password, isInmate, username, sex, location, description, profilePic, inmate} = input;
+      const user = await User.create({email, password, isInmate, username, sex, location, description, profilePic, inmate});
       const token = signToken(user);
 
       return { token, user };
