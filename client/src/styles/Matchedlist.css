@@ -1,11 +1,26 @@
+.matesCon {
+
+    color: #1b1464;
+
+}
+
 .matesTitle {
 
-    margin-left: 8px;
+    margin-left: 13px;
+
+}
+
+.matchedCards {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
 }
 
 .matchedUser {
 
+    width: 320px;
     margin: 15px;
     border-radius: 10px;
     background: #ffffff;
@@ -17,38 +32,56 @@
 .matchedPic  {
 
     height: 120px;
-    border: 10px 10px 0px 0px;
+    border-radius: 10px;
+    margin: 15px;
+    box-shadow: 10px 10px 20px #f267a0,
+    -15px -15px 30px #ffffff
 
 }
 
 .mmlInfo {
 
-    margin-left: 8px;
+    margin: 0px 0px 10px 18px;
 
 }
 
 @media screen and ( min-width: 767px ) {
 
+    .matesTitle {
+
+        margin-left: 20px;
+
+    }
+
     .matchedUser {
 
-        margin-right: 20px;
-        height: 360px;
-        width: 300px;
+        margin-top: 25px;
+        height: 420px;
+        width: 500px;
 
     
     }
     
     .matchedPic  {
-    
-        height: 140px;
-        width: 200px;
-        margin: 10px 0px 0px 10px;
+        
+        height: 180px;
+        width: 250px;
+        margin: 18px;
     
     }
 
 }
 
 @media screen and ( min-width: 1023px ) {
+
+    .matchedCards {
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+
+    }
 
     .matesTitle {
 
@@ -58,18 +91,18 @@
 
     .matchedUser {
 
-        margin-right: 25px;
-        height: 360px;
-        width: 300px;
+        margin-top: 25px;
+        height: 420px;
+        width: 450px;
 
     
     }
     
     .matchedPic  {
     
-        height: 140px;
-        width: 200px;
-        margin: 10px 0px 0px 10px;
+        height: 190px;
+        width: 270px;
+        margin: 20px;
     
     }
 

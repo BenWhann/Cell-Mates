@@ -6,7 +6,7 @@ export default function myMatches() {
   
       const { userId } = useParams();
       const { loading, data } = useQuery(QUERY_SINGLE_USER, {
-          variables: { userId: userId },
+          variables: { id: userId },
       });
   
       const userInfo = data?.user || {};
@@ -21,13 +21,13 @@ export default function myMatches() {
 
   return(
     <>
-      <div className='d-flex justify-content-center'>
+      <div className='matchedCards'>
         {userInfo.matches.map((match) =>
-          <>
+          <div>
             <div key={match._id} className="matchedUser">
               <img className='matchedPic' src={match.profilePic} />
               <div className='mmlInfo'>
-                <h3>{match.username} {match.age}</h3>
+                <h2>{match.username} {match.age}</h2>
                 <p>Sex: {match.sex}<br/>
                    Location: {match.location}<br/>
                    email: {match.email}</p>
@@ -41,7 +41,7 @@ export default function myMatches() {
                 <p>{match.description}</p>
               </div>
             </div>
-          </>
+          </div>
         )}
       </div>    
     </>
