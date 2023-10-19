@@ -1,3 +1,41 @@
+.suTitle, .SignupForm {
+
+    color: #1b1464;
+
+}
+
+.signupCont {
+
+    width: 700px;
+
+}
+
+.formBtn {
+
+    width: 100px;
+    outline: none;
+    border-radius: 10px;
+    border: 1px solid #1b1464;
+    background-color: #00000000;
+    font-size: 15px;
+    min-height: 48px;
+    line-height: 1.29;
+    color: #f267a0;
+    font-weight: 400;
+    box-shadow: 10px 10px 20px #bebebe,
+    -15px -15px 30px #ffffff
+
+}
+
+.formBtn:hover {
+
+    background-color: #f267a0;
+    color: #1b1464;
+    box-shadow: 10px 10px 20px #fd92a6,
+    -15px -15px 30px #ffffff
+
+}
+
 @media screen and ( min-width: 767px ) {
 
     .signupCont {
@@ -6,6 +44,8 @@
         border-radius: 5px;
         margin: 25px 11px 0px 11px;
         padding-bottom: 15px;
+        box-shadow: 10px 10px 20px #bebebe,
+        -15px -15px 30px #ffffff
 
     }
 
@@ -20,6 +60,8 @@
         margin: 25px 11px 0px 11px;
         padding-bottom: 15px;
         width: 700px;
+        box-shadow: 10px 10px 20px #bebebe,
+        -15px -15px 30px #ffffff
 
     }
 

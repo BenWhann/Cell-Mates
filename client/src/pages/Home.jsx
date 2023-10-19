@@ -10,13 +10,13 @@ export default function Homepage() {
 
   return (
     <div className='d-flex justify-content-center mt-5 mx-4'>
-      <Carousel className='carouselCont' fade indicators={false} controls={false}>
+      <Carousel indicators={false} className='carouselCont' fade>
         <Carousel.Item>
           <Link to="/signup">
             <Image className="homeImages" src={FirstImage} rounded />
             <Carousel.Caption>
               <h3>Sign Up Now!!!</h3>
-              <p>Find that connection in unlikely places</p>
+              <p className='qoute'>Connect in unlikely places</p>
             </Carousel.Caption>
           </Link>
         </Carousel.Item>
@@ -25,7 +25,7 @@ export default function Homepage() {
             <Image className="homeImages" src={SecondImage} rounded />
             <Carousel.Caption>
               <h3>Sign Up Now!!!</h3>
-              <p>Be the change in that someone's life</p>
+              <p className='qoute'>Be the change in that someone's life</p>
             </Carousel.Caption>
           </Link>
         </Carousel.Item>
@@ -34,7 +34,7 @@ export default function Homepage() {
             <Image className="homeImages" src={ThirdImage} rounded />
             <Carousel.Caption>
               <h3>Sign Up Now!!!</h3>
-              <p>Start the process to find the one</p>
+              <p className='qoute'>Start the process to find the one</p>
             </Carousel.Caption>
           </Link>
       </Carousel.Item>

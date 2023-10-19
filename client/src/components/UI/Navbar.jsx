@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Navbar from 'react-bootstrap/Navbar';
 import '../../styles/Home.css';
@@ -12,12 +11,12 @@ export default function Navi({ links }) {
 
     return(
       <div className='d-flex justify-content-center'>
-        <Button variant="primary" onClick={handleShow} size="lg">
+        <button className='menuBtn' onClick={handleShow}>
           <div className='menuIcon'></div>
           <div className='menuIcon'></div>
           <div className='menuIcon'></div>
-        </Button>
-        <Navbar.Offcanvas show={show} onClick={handleClose}>
+        </button>
+        <Navbar.Offcanvas className='canvasNav' show={show} onClick={handleClose}>
           <Offcanvas.Header closeButton>
             <Offcanvas.Title>Menu</Offcanvas.Title>
           </Offcanvas.Header>

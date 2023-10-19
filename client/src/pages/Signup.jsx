@@ -71,7 +71,7 @@ export default function signUppage() {
     <div className='d-flex justify-content-center'>
     <div className='signupCont'>
       <div className='m-3'>
-        <h2>Signup</h2>
+        <h2 className='suTitle'>Signup</h2>
       </div>
       <div>
         <Form onSubmit={handleFormSubmit} className='SignupForm mx-5'>
@@ -148,7 +148,7 @@ export default function signUppage() {
             <Form.Label>Description</Form.Label>
             <Form.Control placeholder='Something about you' name="description" as='textarea' rows={5} required onChange={handleChange}></Form.Control>
           </Form.Group>
-          <button type="submit" className="btn btn-primary">Sign Up</button>
+          <button type="submit" className="formBtn">Sign Up</button>
         </Form>
       </div>
     </div>
