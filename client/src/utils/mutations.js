@@ -14,17 +14,16 @@ export const LOGIN = gql`
 export const ADD_USER = gql`
   mutation AddUser($input: AddUserInput) {
   addUser(input: $input) {
+    token
     user {
-      age
-      _id
-      description
       email
-      isInmate
-      location
       password
-      profilePic
-      sex
+      isInmate
       username
+      location
+      description
+      sex
+      profilePic
       inmate {
         crime
         pastConvictions

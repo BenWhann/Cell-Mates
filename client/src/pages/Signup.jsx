@@ -8,11 +8,12 @@ import '../styles/Signup.css';
 
 
 
-export default function signUppage(props) {
-  const [formState, setFormState] = useState({ isInmate: true, inmate: {} });
+export default function signUppage() {
+  const [formState, setFormState] = useState({ isInmate: false });
   const [addUser] = useMutation(ADD_USER);
   const [open, setOpen] = useState(false);
 
+  //set form state when any change occurs
   const handleChange = (event) => {
     let { name, value } = event.target;
 
@@ -20,7 +21,7 @@ export default function signUppage(props) {
       value = event.target.id[4].toUpperCase();
     }
     if (name === "isInmate") {
-      value = event.target.ariaExpanded === "true" ? true : false;
+      value = event.target.ariaExpanded === "true" ? false : true;
     }
     if (name === "crime") {
       setFormState({
@@ -50,28 +51,20 @@ export default function signUppage(props) {
     });
   };
 
+  //call add user mutation to create user
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
+    console.log("formstate ", formState)
     const { data } = await addUser({
       variables: {
         input: {
-          ...formState,
-          isInmate: formState.isInmate ?? false
+          ...formState
         }
 
       },
     });
     Auth.login(data.addUser.token);
-
-    //    const form = event.currentTarget;
-    //    if (form.checkValidity() === false) {
-    //      event.preventDefault();
-    //      event.stopPropagation();
-    //    }
-
-    //    setValidated(true);
-
   };
 
   return (
