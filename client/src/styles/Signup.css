@@ -1,0 +1,26 @@
+@media screen and ( min-width: 767px ) {
+
+    .signupCont {
+
+        border: 2px solid #f4bbc9;
+        border-radius: 5px;
+        margin: 25px 11px 0px 11px;
+        padding-bottom: 15px;
+
+    }
+
+}
+
+@media screen and ( min-width: 1023px ) {
+
+    .signupCont {
+        
+        border: 2px solid #f4bbc9;
+        border-radius: 5px;
+        margin: 25px 11px 0px 11px;
+        padding-bottom: 15px;
+        width: 700px;
+
+    }
+
+}

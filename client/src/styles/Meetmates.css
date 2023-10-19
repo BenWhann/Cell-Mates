@@ -14,11 +14,51 @@
 
 }
 
+.thumbIconD:hover {
+
+    animation-duration: 1s;
+    animation-name: rotateD;
+    animation-iteration-count: infinite;
+    animation-direction: reverse;
+
+}
+
+@keyframes rotateD {
+
+    from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(359deg);
+      }       
+
+}
+
 .thumbIconU {
 
     position: absolute;
     top: 410px;
     right: 30px;
+
+}
+
+.thumbIconU:hover {
+
+    animation-duration: 1s;
+    animation-name: rotateU;
+    animation-iteration-count: infinite;
+    animation-direction:reverse
+
+}
+
+@keyframes rotateU {
+
+    from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(359deg);
+      }       
 
 }
 
@@ -31,15 +71,12 @@
 
 .mmCont {
 
-    border: 2px solid rgb(178, 178, 178);
-    border-radius: 7px;
+    border-radius: 15px;
+    background: #ffffff;
+    box-shadow: 15px 15px 30px #bebebe,
+               -15px -15px 30px #ffffff
 
 }  
-
-.matesInfo {
-
-
-}
 
 .mmPic {
 

@@ -3,8 +3,6 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { useState } from 'react';
 
-import Image from 'react-bootstrap/Image';
-import Card from 'react-bootstrap/Card';
 // import Modal from 'react-bootstrap/Modal';
 // import Button from 'react-bootstrap/Button';
 
@@ -39,9 +37,9 @@ export default function myMatches() {
 
     {userInfo.matches.map((match) =>
     <>
-      <Card style={{ width: '18rem' }} key={match._id} className="matchedUser">
-        <Image className='matchedPic' src={match.profilePic} />
-        <div>
+      <div key={match._id} className="matchedUser">
+        <img className='matchedPic' src={match.profilePic} />
+        <div className='mmlInfo'>
           <h3>{match.username} {match.age}</h3>
           <p>Sex: {match.sex}<br/>
              Location: {match.location}<br/>
@@ -56,7 +54,7 @@ export default function myMatches() {
              <p>{match.description}</p>
           {/* <Button variant="primary" onClick={handleShow}>Profile Info</Button> */}
         </div>
-      </Card>
+      </div>
       
       {/* <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>

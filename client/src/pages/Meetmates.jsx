@@ -1,6 +1,5 @@
 import '../styles/Meetmates.css';
 import Image from 'react-bootstrap/Image';
-import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import Thumbsup from '../../public/images/thumbsup.png'
 import Thumbsdown from '../../public/images/thumbsdown.png'
