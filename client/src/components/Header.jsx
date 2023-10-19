@@ -57,7 +57,7 @@ export default function header() {
           <Navi
             links={[
               <Link key={1} className="nav-link navLink" to={`/meetmates/${Auth.getProfile().data._id}`}> Match Me </Link>,
-              <Link key={2} className="nav-link navLink" to="/userprofile"> Profile </Link>,
+              <Link key={2} className="nav-link navLink" to={`/userprofile/${Auth.getProfile().data._id}`}> Profile </Link>,
               <Link key={3} className="nav-link navLink" to={`/matchedlist/${Auth.getProfile().data._id}`}> Mates </Link>,
               <Link key={4} className="nav-link navLink" to="/commissary"> Send a Package </Link>
             ]}

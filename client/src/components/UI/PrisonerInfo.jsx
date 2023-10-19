@@ -3,9 +3,11 @@ export default function prisonerInfo(props) {
     const isInmate = props.user.isInmate;
     console.log('isInmate', isInmate)
 
+    //got rid of ? : <div>N/A</div>
+
     return (
         <>
-            {isInmate ? 
+            {isInmate && (
         
             <>
                 <h2 className='headers'>Prisoner Details</h2>
@@ -16,11 +18,7 @@ export default function prisonerInfo(props) {
                 <div>Past Convictions: {props.user.inmate.pastConvictions}</div>
             </>
 
-            : 
-                
-            <div>N/A</div>
-        
-            }
+            )}
         
         </>
     )

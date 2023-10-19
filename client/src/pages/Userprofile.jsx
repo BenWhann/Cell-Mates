@@ -34,10 +34,10 @@ export default function userProfilePage() {
     return (
         <>
             <div className='profileBody container d-flex flex-column align-items-center'>
-                <div id='profileHeader' className='m-3 d-flex flex-column justify-content-center'>
+                <div id='profileHeader' className='m-3 d-flex flex-column align-items-center'>
                     <h1 className='headers'>User Profile</h1>
-                    <Button className='btnColor' id='deleteBtn' variant='primary' type='submit' onClick={() => deleteUserAndLogout()}>Delete Profile</Button>
-                    {isStatic && <Button className='btnColor' id='editBtn' type='submit' onClick={() => setEditMode(!isStatic)}>Edit</Button>}
+                    <button className='btnColor' id='deleteBtn' type='submit' onClick={() => deleteUserAndLogout()}>Delete Profile</button>
+                    {isStatic && <button className='btnColor' id='editBtn' type='submit' onClick={() => setEditMode(!isStatic)}>Edit</button>}
                 </div>
                 <div className='container d-flex flex-column align-items-center'>
                     {isStatic ? <UserProfileStatic user={userInfo} /> : <UserProfileEditForm user={userInfo} />}

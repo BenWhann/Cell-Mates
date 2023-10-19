@@ -6,7 +6,7 @@ export default function CivilianPreferncesEdit(props) {
 
     return (
         <>
-        {isInmate ?
+        {isInmate && (
         <>
         <h2 className='headers'>Civilian Preferences</h2>
 
@@ -22,9 +22,7 @@ export default function CivilianPreferncesEdit(props) {
             <Form.Text className=''></Form.Text>
         </Form.Group>
         </>
-        :
-        <div>N/A</div>
-        }
+       )}
         </>
     )
 }

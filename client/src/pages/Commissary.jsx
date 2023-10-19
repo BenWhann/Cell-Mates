@@ -25,7 +25,7 @@ export default function CommisaryPage() {
                     <div className="card-body">
                         <h5 className="card-title">Toothbrush</h5>
                         <p className="card-text">$1.00</p>
-                        <a href="#" class="btnColor btn btn-primary">Buy</a>
+                        <a href="#" class="secBtn btnColor btn btn-primary">Buy</a>
                     </div>
                 </div>
 

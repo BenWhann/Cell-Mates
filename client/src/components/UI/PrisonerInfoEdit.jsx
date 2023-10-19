@@ -5,7 +5,7 @@ export default function PrisonerInfoEdit(props) {
     const isInmate = props.user.isInmate;
 
     return (
-        <>
+        <div className='pEditInfo'>
         {isInmate ?
         <>
         <h2 className='headers'>Prisoner Details</h2>
@@ -43,6 +43,6 @@ export default function PrisonerInfoEdit(props) {
         :
         <div>N/A</div>
         }
-        </>
+        </div>
     )
 }
